@@ -1,0 +1,104 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="ThreeDimShapes"
+        mc:Ignorable="d"
+        Title="3D Shapes" Height="750" Width="1200" KeyDown="Window_KeyDown"
+    
+    >
+    <Window.Background>
+        <ImageBrush ImageSource="images/underground.jpg"></ImageBrush>
+    </Window.Background>
+
+    <Grid x:Name="LayoutRoot">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.1*" x:Name="TextHeader"/>
+                <RowDefinition Height="1*" x:Name="MainContent"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" FontFamily="Showcard Gothic" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" TextDecorations="Underline" Margin="0"><Run Text="Choose a Shape"/></TextBlock>
+
+
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
+                <Button x:Name="Button_2D" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="15,5" Background="#FF3B8B43">
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect> 2D Shapes!
+                </Button>
+                <Button x:Name="Button_3D" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="15,5" Background="#FF3B8B43" IsEnabled="False">
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect> 3D Shapes!
+                </Button>
+            </StackPanel>
+
+
+            <Grid Row="1" Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.1*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="1">
+                    <Button>Square</Button>
+                    <Button>Circle</Button>
+                    <Button>Trapezium</Button>
+                    <Button>Triangle</Button>
+                    <Button>Parallelogram</Button>
+                    <Button></Button>
+
+
+                </StackPanel>
+            </Grid>
+
+            <Grid Row="1" Column="0" x:Name="TwoDimGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.1*"/>
+                </Grid.ColumnDefinitions>
+
+                <TabControl Grid.Column="0" Background="Transparent">
+
+                    <TabItem x:Name="RectangleTab" Visibility="Collapsed">
+                        <Label Content="HI"/>
+                    </TabItem>
+
+                    <TabItem x:Name="SphereTab" Visibility="Collapsed">
+                        <Label Content="Not Hi"/>
+                    </TabItem>
+
+                    <TabItem x:Name="CylinderTab" Visibility="Collapsed">
+                        <Label Content="Not Hi"/>
+                    </TabItem>
+
+                    <TabItem x:Name="Cone" Visibility="Collapsed">
+                        <Label Content="Not Hi"/>
+                    </TabItem>
+                </TabControl>
+
+                <StackPanel Grid.Column="1">
+                    <Button>Rectangle</Button>
+                    <Button>Sphere</Button>
+                    <Button>Cylinder</Button>
+                    <Button>Cone</Button>
+
+
+                </StackPanel>
+
+            </Grid>
+
+
+
+        </Grid>
+
+    </Grid>
+
+</Window>

@@ -1,0 +1,197 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Name="TwoDimWindow"
+        x:Class="TwoDimShapes"
+        mc:Ignorable="d"
+        Title="2D Shapes" Height="750" Width="1200" KeyDown="Window_KeyDown" FontFamily="Super Mario 256" MinWidth="720" MinHeight="480" Background="#FF724747"
+    
+    >
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="HeaderGroup" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel x:Name="TitleGroup"  Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,0">
+                <TextBlock Foreground="Red" FontFamily="{StaticResource SuperMario}" FontSize="60">2</TextBlock>
+                <TextBlock Foreground="Cyan" FontFamily="{StaticResource SuperMario}" FontSize="60">D</TextBlock>
+                <TextBlock Foreground="Red" FontFamily="{StaticResource SuperMario}" FontSize="60" Text=" "></TextBlock>
+                <TextBlock Foreground="Yellow" FontFamily="{StaticResource SuperMario}" FontSize="60">S</TextBlock>
+                <TextBlock Foreground="LightGreen" FontFamily="{StaticResource SuperMario}" FontSize="60">H</TextBlock>
+                <TextBlock Foreground="Cyan" FontFamily="{StaticResource SuperMario}" FontSize="60">A</TextBlock>
+                <TextBlock Foreground="Yellow" FontFamily="{StaticResource SuperMario}" FontSize="60">P</TextBlock>
+                <TextBlock Foreground="Red" FontFamily="{StaticResource SuperMario}" FontSize="60">E</TextBlock>
+                <TextBlock Foreground="LightGreen" FontFamily="{StaticResource SuperMario}" FontSize="60">S</TextBlock>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+                <Button x:Name="Button_2D" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="15,5" Background="#FF3B8B43" IsEnabled="False" FontFamily="Super Mario 256">
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect> 2D Shapes!
+                </Button>
+                <Button x:Name="Button_3D" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="15,5" Background="#FF3B8B43">
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect> 3D Shapes!
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <Grid Row="1" Column="0" x:Name="TwoDimGrid" Margin="50" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.175*"/>
+            </Grid.ColumnDefinitions>
+
+            <TabControl x:Name="MainTab" Grid.Column="0" Background="WhiteSmoke" BorderBrush="Yellow" BorderThickness="15">
+                <TabItem x:Name="RectangleTab" Visibility="Collapsed">
+                    <Label Content="HI"/>
+                </TabItem>
+
+                <TabItem x:Name="TriangleTab" Visibility="Collapsed">
+                    <Label Content="Not Hi"/>
+                </TabItem>
+
+                <TabItem x:Name="TrapeziumTab" Visibility="Collapsed">
+                    <Label Content="Not Hi"/>
+                </TabItem>
+
+                <TabItem x:Name="ParallelTab" Visibility="Collapsed">
+                    <Label Content="Not Hi"/>
+                </TabItem>
+
+                <TabItem x:Name="CircleTab" Visibility="Collapsed">
+                    <Label Content="Not Hi"/>
+                </TabItem>
+
+                <TabItem x:Name="EclipseTab" Visibility="Collapsed">
+                    <Label Content="Not Hi"/>
+                </TabItem>
+            </TabControl>
+
+            <Grid Row="0" Column="1">
+                <Grid.Resources>
+                    <Style x:Key="MyButtonStyle" TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Grid Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center"
+                                                              VerticalAlignment="Center"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+
+                </Grid.Resources>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition Height="0.1*"/>
+                </Grid.RowDefinitions>
+
+                <Button Style="{StaticResource MyButtonStyle}"  x:Name="RectangleButton" Margin="0,5" Grid.Row="0" Padding="5" HorizontalContentAlignment="Center" Background="Yellow" Foreground="White" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.5*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock FontFamily="{StaticResource SuperMario}" FontSize="16" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0" Foreground="Black">
+                                Rectangle
+                        </TextBlock>
+                        <Image Grid.Row="1" Source="images/shapes/rectangle.png"/>
+                    </Grid>
+                </Button>
+
+                <Button x:Name="TriangleButton" Margin="0,5" Grid.Row="1" Padding="5" HorizontalContentAlignment="Center" FontFamily="Super Mario 256" BorderThickness="0" Background="Lime">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.5*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock FontFamily="{StaticResource SuperMario}" FontSize="16" Margin="0">
+                                Triangle
+                        </TextBlock>
+                        <Image Grid.Row="1"  Source="images/shapes/triangle.png"/>
+                    </Grid>
+                </Button>
+
+                <Button x:Name="TrapeziumButton" Margin="0,5" Grid.Row="2" Padding="5" HorizontalContentAlignment="Center" BorderThickness="0" Background="DarkCyan">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.5*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock FontFamily="{StaticResource SuperMario}" Foreground="Black" FontSize="16">
+                                Trapezium
+                        </TextBlock>
+                        <Image Grid.Row="1" Source="images/shapes/trapezium.png"/>
+                    </Grid>
+                </Button>
+
+                <Button x:Name="ParallelButton" Margin="0,5" Grid.Row="3" Padding="5" HorizontalContentAlignment="Center" BorderThickness="0" Background="MediumPurple">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.5*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock FontFamily="{StaticResource SuperMario}" Foreground="Black" FontSize="16">
+                                Rhombus
+                        </TextBlock>
+                        <Image Grid.Row="1" Source="images/shapes/rhombus.png"/>
+                    </Grid>
+                </Button>
+
+                <Button x:Name="CircleButton" Margin="0,5" Grid.Row="4" Padding="5" HorizontalContentAlignment="Center" BorderThickness="0" Background="Orange">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.5*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock FontFamily="{StaticResource SuperMario}" Foreground="Black" FontSize="16">
+                                Circle
+                        </TextBlock>
+                        <Image Grid.Row="1" Source="images/shapes/circle.png" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Grid>
+                </Button>
+
+                <Button x:Name="EllipseButton" Margin="0,5" Grid.Row="5" Padding="5" Background="OrangeRed" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.5*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock FontFamily="{StaticResource SuperMario}" FontSize="16">Eclipse</TextBlock>
+                        <Image Grid.Row="1" Source="images/shapes/oval.png"/>
+                    </Grid>
+                </Button>
+
+            </Grid>
+
+
+
+        </Grid>
+
+
+
+    </Grid>
+
+
+</Window>
