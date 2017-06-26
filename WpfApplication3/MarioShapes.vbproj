@@ -173,6 +173,7 @@
     <Resource Include="images\images.jpg" />
     <Resource Include="images\aboveground.jpg" />
     <Resource Include="images\shapes\circle.png" />
+    <Resource Include="images\shapes\oval.png" />
     <Content Include="images\test.mp4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
