@@ -55,7 +55,37 @@
 
             <TabControl x:Name="MainTab" Grid.Column="0" Background="WhiteSmoke" BorderBrush="Yellow" BorderThickness="15">
                 <TabItem x:Name="RectangleTab" Visibility="Collapsed">
-                    <Label Content="HI"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.7*"/>
+                            <ColumnDefinition Width="0.3*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <Border BorderBrush="Black" BorderThickness="0,0,2,0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0.1*"></RowDefinition>
+                                    <RowDefinition Height="0.5*"></RowDefinition>
+                                    <RowDefinition Height="0.1*"></RowDefinition>
+                                    <RowDefinition Height="0.1*"></RowDefinition>
+                                    <RowDefinition Height="0.1*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Image x:Name="rectangleMeasure" Source="images/measure/placeholder.jpg" Grid.Row="1"></Image>
+                                
+                                <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0">
+                                    <TextBlock Margin="10,0">Width:</TextBlock>
+                                    <TextBox x:Name="rectangleWidth" Margin="10,0" MaxLength="2" Width="24">0</TextBox>
+                                    <TextBlock Margin="10,0">Height:</TextBlock>
+                                    <TextBox x:Name="rectangleHeight" Margin="10,0" MaxLength="2" Width="24">0</TextBox>
+                                </StackPanel>
+
+                            </Grid>
+                        </Border>
+
+                        <Grid Grid.Column="1">
+
+                        </Grid>
+                    </Grid>
                 </TabItem>
 
                 <TabItem x:Name="TriangleTab" Visibility="Collapsed">
@@ -104,17 +134,17 @@
                     <RowDefinition Height="0.1*"/>
                 </Grid.RowDefinitions>
 
-                <Button Style="{StaticResource MyButtonStyle}"  x:Name="RectangleButton" Margin="0,5" Grid.Row="0" Padding="5" HorizontalContentAlignment="Center" Background="Yellow" Foreground="White" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center">
+                <Button  x:Name="RectangleButton" Margin="0,5" Grid.Row="0" Padding="5" HorizontalContentAlignment="Center" Background="Yellow" Foreground="White" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="0.5*"></RowDefinition>
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
 
-                        <TextBlock FontFamily="{StaticResource SuperMario}" FontSize="16" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0" Foreground="Black">
+                        <TextBlock FontFamily="{StaticResource SuperMario}" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black">
                                 Rectangle
                         </TextBlock>
-                        <Image Grid.Row="1" Source="images/shapes/rectangle.png"/>
+                        <Image Grid.Row="1" Source="images/shapes/rectangle.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </Button>
 
@@ -125,10 +155,10 @@
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
 
-                        <TextBlock FontFamily="{StaticResource SuperMario}" FontSize="16" Margin="0">
+                        <TextBlock FontFamily="{StaticResource SuperMario}" FontSize="16" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 Triangle
                         </TextBlock>
-                        <Image Grid.Row="1"  Source="images/shapes/triangle.png"/>
+                        <Image Grid.Row="1"  Source="images/shapes/triangle.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </Button>
 
@@ -138,10 +168,10 @@
                             <RowDefinition Height="0.5*"></RowDefinition>
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <TextBlock FontFamily="{StaticResource SuperMario}" Foreground="Black" FontSize="16">
+                        <TextBlock FontFamily="{StaticResource SuperMario}" Foreground="Black" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 Trapezium
                         </TextBlock>
-                        <Image Grid.Row="1" Source="images/shapes/trapezium.png"/>
+                        <Image Grid.Row="1" Source="images/shapes/trapezium.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </Button>
 
@@ -152,10 +182,10 @@
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
 
-                        <TextBlock FontFamily="{StaticResource SuperMario}" Foreground="Black" FontSize="16">
+                        <TextBlock FontFamily="{StaticResource SuperMario}" Foreground="Black" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 Rhombus
                         </TextBlock>
-                        <Image Grid.Row="1" Source="images/shapes/rhombus.png"/>
+                        <Image Grid.Row="1" Source="images/shapes/rhombus.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </Button>
 
@@ -165,7 +195,7 @@
                             <RowDefinition Height="0.5*"></RowDefinition>
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <TextBlock FontFamily="{StaticResource SuperMario}" Foreground="Black" FontSize="16">
+                        <TextBlock FontFamily="{StaticResource SuperMario}" Foreground="Black" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 Circle
                         </TextBlock>
                         <Image Grid.Row="1" Source="images/shapes/circle.png" HorizontalAlignment="Center" VerticalAlignment="Center" />
@@ -178,7 +208,7 @@
                             <RowDefinition Height="0.5*"></RowDefinition>
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <TextBlock FontFamily="{StaticResource SuperMario}" FontSize="16">Eclipse</TextBlock>
+                        <TextBlock FontFamily="{StaticResource SuperMario}" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center">Ellipse</TextBlock>
                         <Image Grid.Row="1" Source="images/shapes/oval.png"/>
                     </Grid>
                 </Button>

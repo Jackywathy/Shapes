@@ -62,21 +62,22 @@ Public Class TwoDimShapes
 
         If senderButton.Equals(RectangleButton) Then
             MainTab.BorderBrush = RectangleButton.Background
-
+            RectangleTab.IsSelected = True
         ElseIf senderButton.Equals(TrapeziumButton) Then
             MainTab.BorderBrush = TrapeziumButton.Background
-
+            TrapeziumTab.IsSelected = True
         ElseIf senderButton.Equals(TriangleButton) Then
             MainTab.BorderBrush = TriangleButton.Background
-
+            TriangleTab.IsSelected = True
         ElseIf senderButton.Equals(ParallelButton) Then
             MainTab.BorderBrush = ParallelButton.Background
-
+            ParallelTab.IsEnabled = True
         ElseIf senderButton.Equals(CircleButton) Then
             MainTab.BorderBrush = CircleButton.Background
-
+            CircleTab.IsEnabled = True
         ElseIf senderButton.Equals(EllipseButton) Then
             MainTab.BorderBrush = EllipseButton.Background
+            EclipseTab.IsSelected = True
         End If
         senderButton.Margin = New Thickness(0, 5, 0, 5)
 

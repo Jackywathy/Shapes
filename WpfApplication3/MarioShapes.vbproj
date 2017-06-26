@@ -168,15 +168,21 @@
     <Resource Include="images\images.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\eclipse.png" />
     <Resource Include="images\underground.jpg" />
     <Resource Include="images\images.jpg" />
     <Resource Include="images\aboveground.jpg" />
     <Resource Include="images\shapes\circle.png" />
+    <Resource Include="images\shapes\triangle.png" />
+    <Resource Include="images\shapes\trapezium.png" />
+    <Resource Include="images\shapes\rectangle.png" />
+    <Resource Include="images\shapes\rhombus.png" />
     <Resource Include="images\shapes\oval.png" />
+    <Resource Include="images\measure\marioblock.jpg" />
+    <Resource Include="images\measure\placeholder.jpg" />
     <Content Include="images\test.mp4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
