@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Name="TwoDimWindow"
         x:Class="TwoDimShapes"
         mc:Ignorable="d"
-        Title="2D Shapes" Height="750" Width="1200" KeyDown="Window_KeyDown" FontFamily="Super Mario 256" MinWidth="720" MinHeight="480" Background="#FF724747"
+        Title="2D Shapes" Height="750" Width="1200" KeyDown="Window_KeyDown" MinWidth="720" MinHeight="480" Background="#FF724747"
+        FontFamily="./Fonts/#Super Mario 256"
     
     >
 
-    <Grid x:Name="LayoutRoot">
+    <Grid x:Name="LayoutRoot" TextBlock.FontFamily="./Fonts/#Super Mario 256">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
@@ -22,19 +23,19 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel x:Name="TitleGroup"  Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,0">
-                <TextBlock Foreground="Red" FontFamily="{StaticResource SuperMario}" FontSize="60">2</TextBlock>
-                <TextBlock Foreground="Cyan" FontFamily="{StaticResource SuperMario}" FontSize="60">D</TextBlock>
-                <TextBlock Foreground="Red" FontFamily="{StaticResource SuperMario}" FontSize="60" Text=" "></TextBlock>
-                <TextBlock Foreground="Yellow" FontFamily="{StaticResource SuperMario}" FontSize="60">S</TextBlock>
-                <TextBlock Foreground="LightGreen" FontFamily="{StaticResource SuperMario}" FontSize="60">H</TextBlock>
-                <TextBlock Foreground="Cyan" FontFamily="{StaticResource SuperMario}" FontSize="60">A</TextBlock>
-                <TextBlock Foreground="Yellow" FontFamily="{StaticResource SuperMario}" FontSize="60">P</TextBlock>
-                <TextBlock Foreground="Red" FontFamily="{StaticResource SuperMario}" FontSize="60">E</TextBlock>
-                <TextBlock Foreground="LightGreen" FontFamily="{StaticResource SuperMario}" FontSize="60">S</TextBlock>
+                <TextBlock Foreground="Red" FontFamily="./Fonts/#Super Mario 256" FontSize="60">2</TextBlock>
+                <TextBlock Foreground="Cyan" FontFamily="./Fonts/#Super Mario 256" FontSize="60">D</TextBlock>
+                <TextBlock Foreground="Red" FontFamily="./Fonts/#Super Mario 256" FontSize="60" Text=" "></TextBlock>
+                <TextBlock Foreground="Yellow" FontFamily="./Fonts/#Super Mario 256" FontSize="60">S</TextBlock>
+                <TextBlock Foreground="LightGreen" FontFamily="./Fonts/#Super Mario 256" FontSize="60">H</TextBlock>
+                <TextBlock Foreground="Cyan" FontFamily="./Fonts/#Super Mario 256" FontSize="60">A</TextBlock>
+                <TextBlock Foreground="Yellow" FontFamily="./Fonts/#Super Mario 256" FontSize="60">P</TextBlock>
+                <TextBlock Foreground="Red" FontFamily="./Fonts/#Super Mario 256" FontSize="60">E</TextBlock>
+                <TextBlock Foreground="LightGreen" FontFamily="./Fonts/#Super Mario 256" FontSize="60">S</TextBlock>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
-                <Button x:Name="Button_2D" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="15,5" Background="#FF3B8B43" IsEnabled="False" FontFamily="Super Mario 256">
+                <Button x:Name="Button_2D" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="15,5" Background="#FF3B8B43" IsEnabled="False" FontFamily="./Fonts/#Super Mario 256">
                     <Button.Effect>
                         <DropShadowEffect/>
                     </Button.Effect> 2D Shapes!
@@ -47,36 +48,38 @@
             </StackPanel>
         </Grid>
 
-        <Grid Row="1" Column="0" x:Name="TwoDimGrid" Margin="50" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid Row="1" Column="0" x:Name="TwoDimGrid" Margin="50"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="0.175*"/>
             </Grid.ColumnDefinitions>
 
-            <TabControl x:Name="MainTab" Grid.Column="0" Background="WhiteSmoke" BorderBrush="Yellow" BorderThickness="15">
-                <TabItem x:Name="RectangleTab" Visibility="Collapsed">
+            <TabControl x:Name="MainTab" Grid.Column="0" Background="WhiteSmoke" BorderBrush="Yellow" BorderThickness="15" FontFamily="./Fonts/#Super Mario 256">
+                <TabItem x:Name="RectangleTab" Visibility="Collapsed" FontFamily="./Fonts/#Super Mario 256">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.7*"/>
                             <ColumnDefinition Width="0.3*"/>
                         </Grid.ColumnDefinitions>
-                        
+
                         <Border BorderBrush="Black" BorderThickness="0,0,2,0">
                             <Grid>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="0.1*"></RowDefinition>
-                                    <RowDefinition Height="0.5*"></RowDefinition>
-                                    <RowDefinition Height="0.1*"></RowDefinition>
+                                    <RowDefinition Height="0.05*"></RowDefinition>
+                                    <RowDefinition Height="0.4*"></RowDefinition>
                                     <RowDefinition Height="0.1*"></RowDefinition>
                                     <RowDefinition Height="0.1*"></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <Image x:Name="rectangleMeasure" Source="images/measure/placeholder.jpg" Grid.Row="1"></Image>
-                                
+                                <Image x:Name="RectangleMeasure" Source="images/measure/placeholder.jpg" Grid.Row="1"></Image>
+
                                 <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0">
-                                    <TextBlock Margin="10,0">Width:</TextBlock>
-                                    <TextBox x:Name="rectangleWidth" Margin="10,0" MaxLength="2" Width="24">0</TextBox>
-                                    <TextBlock Margin="10,0">Height:</TextBlock>
-                                    <TextBox x:Name="rectangleHeight" Margin="10,0" MaxLength="2" Width="24">0</TextBox>
+                                    <TextBlock FontFamily="./Fonts/#Super Mario 256"  Margin="10,0" FontSize="20">Width:</TextBlock>
+                                    <TextBox FontFamily="./Fonts/#Super Mario 256" x:Name="RectangleWidth" Margin="10,0" MaxLength="2" Width="30" FontSize="20"></TextBox>
+                                    <TextBlock FontFamily="./Fonts/#Super Mario 256" Margin="10,0" FontSize="20">Height:</TextBlock>
+                                    <TextBox FontFamily="./Fonts/#Super Mario 256" x:Name="RectangleHeight" Margin="10,0" MaxLength="2" Width="30" FontSize="20"></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0">
+                                    <TextBlock FontFamily="./Fonts/#Super Mario 256" x:Name="RectangleOut" FontSize="25">Area = 0 x 0 = 0 units²</TextBlock>
                                 </StackPanel>
 
                             </Grid>
@@ -89,11 +92,92 @@
                 </TabItem>
 
                 <TabItem x:Name="TriangleTab" Visibility="Collapsed">
-                    <Label Content="Not Hi"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.7*"/>
+                            <ColumnDefinition Width="0.3*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border BorderBrush="Black" BorderThickness="0,0,2,0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0.05*"></RowDefinition>
+                                    <RowDefinition Height="0.4*"></RowDefinition>
+                                    <RowDefinition Height="0.1*"></RowDefinition>
+                                    <RowDefinition Height="0.1*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Image x:Name="TriangleMeasure" Source="images/measure/placeholder.jpg" Grid.Row="1"></Image>
+
+                                <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0">
+                                    <TextBlock FontFamily="./Fonts/#Super Mario 256"  Margin="10,0" FontSize="20">Width:</TextBlock>
+                                    <TextBox FontFamily="./Fonts/#Super Mario 256" x:Name="TriangleWidth" Margin="10,0" MaxLength="2" Width="30" FontSize="20"></TextBox>
+                                    <TextBlock FontFamily="./Fonts/#Super Mario 256" Margin="10,0" FontSize="20">Height:</TextBlock>
+                                    <TextBox FontFamily="./Fonts/#Super Mario 256" x:Name="TriangleHeight" Margin="10,0" MaxLength="2" Width="30" FontSize="20"></TextBox>
+                                </StackPanel>
+                                
+                                <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0">
+                                    <TextBlock FontFamily="./Fonts/#Super Mario 256"  x:Name="TriangleOut" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center">Area = </TextBlock>
+                                    
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock x:Name="TriangleTop" FontSize="25" HorizontalAlignment="Center">0 x 0</TextBlock>
+                                        <Image Source="images/line.png" Width="120"></Image>
+                                        <TextBlock x:Name="TriangleBottom" FontSize="25" HorizontalAlignment="Center">2</TextBlock>
+                                
+                                    </StackPanel>
+                                    <TextBlock FontFamily="./Fonts/#Super Mario 256" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center">= 0 units²</TextBlock>
+                                </StackPanel>
+
+                            </Grid>
+                        </Border>
+
+                        <Grid Grid.Column="1">
+
+                        </Grid>
+                    </Grid>
                 </TabItem>
 
                 <TabItem x:Name="TrapeziumTab" Visibility="Collapsed">
-                    <Label Content="Not Hi"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.7*"/>
+                            <ColumnDefinition Width="0.3*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border BorderBrush="Black" BorderThickness="0,0,2,0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0.05*"></RowDefinition>
+                                    <RowDefinition Height="0.5*"></RowDefinition>
+                                    <RowDefinition Height="0.1*"></RowDefinition>
+                                    <RowDefinition Height="0.1*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Image x:Name="TrapeziumMeasure" Source="images/measure/placeholder.jpg" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+
+                                <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0">
+                                    <TextBlock FontFamily="./Fonts/#Super Mario 256"  Margin="10,0">Top Length:</TextBlock>
+                                    <TextBox FontFamily="./Fonts/#Super Mario 256" x:Name="TrapTop" Margin="10,0" MaxLength="2" Width="24"></TextBox>
+                                    <TextBlock FontFamily="./Fonts/#Super Mario 256" Margin="10,0">Bottom Length:</TextBlock>
+                                    <TextBox FontFamily="./Fonts/#Super Mario 256" x:Name="TrapBottom" Margin="10,0" MaxLength="2" Width="24"></TextBox>
+                                    <TextBlock FontFamily="./Fonts/#Super Mario 256" Margin="10,0">Height:</TextBlock>
+                                    <TextBox FontFamily="./Fonts/#Super Mario 256" x:Name="TrapHeight" Margin="10,0" MaxLength="2" Width="24"></TextBox>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="3"  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <TextBlock FontFamily="./Fonts/#Super Mario 256" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">Area =</TextBlock>
+                                    <StackPanel>
+                                        <TextBlock x:Name="TrapOutTop" HorizontalAlignment="Center" FontFamily="./Fonts/#Super Mario 256" FontSize="20">0 + 0 </TextBlock>
+                                        <Image Source="images/line.png" HorizontalAlignment="Center" MaxWidth="120"></Image>
+                                        <TextBlock FontFamily="./Fonts/#Super Mario 256" x:Name="TrapOutBottom" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">2</TextBlock>
+                                    </StackPanel>
+                                    <TextBlock FontFamily="./Fonts/#Super Mario 256" x:Name="TrapOutHeight" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"> x 0 = 0 cm²</TextBlock>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+
+                        <Grid Grid.Column="1">
+
+                        </Grid>
+                    </Grid>
                 </TabItem>
 
                 <TabItem x:Name="ParallelTab" Visibility="Collapsed">
@@ -141,21 +225,21 @@
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
 
-                        <TextBlock FontFamily="{StaticResource SuperMario}" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black">
+                        <TextBlock FontFamily="./Fonts/#Super Mario 256" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Foreground="Black">
                                 Rectangle
                         </TextBlock>
                         <Image Grid.Row="1" Source="images/shapes/rectangle.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </Button>
 
-                <Button x:Name="TriangleButton" Margin="0,5" Grid.Row="1" Padding="5" HorizontalContentAlignment="Center" FontFamily="Super Mario 256" BorderThickness="0" Background="Lime">
+                <Button x:Name="TriangleButton" Margin="0,5" Grid.Row="1" Padding="5" HorizontalContentAlignment="Center" FontFamily="./Fonts/#Super Mario 256" BorderThickness="0" Background="Lime">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="0.5*"></RowDefinition>
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
 
-                        <TextBlock FontFamily="{StaticResource SuperMario}" FontSize="16" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock FontFamily="./Fonts/#Super Mario 256" FontSize="16" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 Triangle
                         </TextBlock>
                         <Image Grid.Row="1"  Source="images/shapes/triangle.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -168,7 +252,7 @@
                             <RowDefinition Height="0.5*"></RowDefinition>
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <TextBlock FontFamily="{StaticResource SuperMario}" Foreground="Black" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock FontFamily="./Fonts/#Super Mario 256" Foreground="Black" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 Trapezium
                         </TextBlock>
                         <Image Grid.Row="1" Source="images/shapes/trapezium.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -182,7 +266,7 @@
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
 
-                        <TextBlock FontFamily="{StaticResource SuperMario}" Foreground="Black" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock FontFamily="./Fonts/#Super Mario 256" Foreground="Black" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 Rhombus
                         </TextBlock>
                         <Image Grid.Row="1" Source="images/shapes/rhombus.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -195,7 +279,7 @@
                             <RowDefinition Height="0.5*"></RowDefinition>
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <TextBlock FontFamily="{StaticResource SuperMario}" Foreground="Black" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock FontFamily="./Fonts/#Super Mario 256" Foreground="Black" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 Circle
                         </TextBlock>
                         <Image Grid.Row="1" Source="images/shapes/circle.png" HorizontalAlignment="Center" VerticalAlignment="Center" />
@@ -208,14 +292,12 @@
                             <RowDefinition Height="0.5*"></RowDefinition>
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <TextBlock FontFamily="{StaticResource SuperMario}" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center">Ellipse</TextBlock>
+                        <TextBlock FontFamily="./Fonts/#Super Mario 256" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center">Ellipse</TextBlock>
                         <Image Grid.Row="1" Source="images/shapes/oval.png"/>
                     </Grid>
                 </Button>
 
             </Grid>
-
-
 
         </Grid>
 

@@ -179,6 +179,7 @@
     <Resource Include="images\shapes\oval.png" />
     <Resource Include="images\measure\marioblock.jpg" />
     <Resource Include="images\measure\placeholder.jpg" />
+    <Resource Include="images\line.png" />
     <Content Include="images\test.mp4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

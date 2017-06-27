@@ -101,3 +101,30 @@ C:\Users\Jack Jiang\Desktop\WpfApplication3\WpfApplication3\obj\Debug\Selector.b
 C:\Users\Jack Jiang\Desktop\WpfApplication3\WpfApplication3\obj\Debug\MarioShapes.g.resources
 C:\Users\Jack Jiang\Desktop\WpfApplication3\WpfApplication3\obj\Debug\WPF_Shapes.Resources.resources
 C:\Users\Jack Jiang\Desktop\WpfApplication3\WpfApplication3\obj\Debug\MarioShapes.vbproj.GenerateResource.Cache
+C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\bin\Debug\MarioShapes.exe.config
+C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\obj\Debug\MarioShapes.exe
+C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\obj\Debug\MarioShapes.xml
+C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\obj\Debug\MarioShapes.pdb
+C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\bin\Debug\images\test.mp4
+C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\bin\Debug\MarioShapes.exe
+C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\bin\Debug\MarioShapes.pdb
+C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\bin\Debug\MarioShapes.xml
+C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\obj\Debug\MarioShapes.vbprojResolveAssemblyReference.cache
+C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\obj\Debug\2DShapes.baml
+C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\obj\Debug\3DShapes.baml
+C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\obj\Debug\MainWindow.baml
+C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\obj\Debug\2DShapes.g.vb
+C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\obj\Debug\3DShapes.g.vb
+C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\obj\Debug\MainWindow.g.vb
+C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\obj\Debug\Quiz.g.vb
+C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\obj\Debug\Selector.g.vb
+C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\obj\Debug\Application.g.vb
+C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\obj\Debug\MarioShapes_Content.g.vb
+C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\obj\Debug\MarioShapes_MarkupCompile.cache
+C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\obj\Debug\MarioShapes_MarkupCompile.lref
+C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\obj\Debug\Application.baml
+C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\obj\Debug\Quiz.baml
+C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\obj\Debug\Selector.baml
+C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\obj\Debug\MarioShapes.g.resources
+C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\obj\Debug\WPF_Shapes.Resources.resources
+C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\obj\Debug\MarioShapes.vbproj.GenerateResource.Cache

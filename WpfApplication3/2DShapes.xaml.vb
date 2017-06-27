@@ -1,6 +1,6 @@
 ﻿Imports System.Collections.Specialized
 
-Public Class TwoDimShapes 
+Public Class TwoDimShapes
     Implements INotifyCollectionChanged
     Public Event CollectionChanged As NotifyCollectionChangedEventHandler Implements INotifyCollectionChanged.CollectionChanged
 
@@ -11,7 +11,7 @@ Public Class TwoDimShapes
     Public SharedVars As Helper
 
     Public Buttons As List(Of Button)
-    
+
 
     Public Sub New(parent As MainWindow)
         ' This call is required by the designer.
@@ -28,6 +28,7 @@ Public Class TwoDimShapes
         Rectangle_Button_Click(RectangleButton, Nothing)
 
     End Sub
+
 
 
     Private Sub Window_KeyDown(sender As Object, e As KeyEventArgs)
@@ -84,7 +85,77 @@ Public Class TwoDimShapes
 
     End Sub
 
-    Private Const AspectRatio As Double = 1.6
+
+
+    Private Sub rectangleHeight_TextInput(sender As Object, e As TextChangedEventArgs) Handles RectangleHeight.TextChanged, RectangleWidth.TextChanged
+        Dim hei As Integer = 0
+        Dim wid As Integer = 0
+        Integer.TryParse(RectangleWidth.Text, Wid)
+        Integer.TryParse(RectangleHeight.Text, Hei)
+        RectangleOut.Text = String.Format("{0} x {1} = {2} units²", wid, hei, wid * hei)
+
+    End Sub
+
+    Private Sub triangleHeight_TextInput(sender As Object, e As TextChangedEventArgs) Handles TriangleHeight.TextChanged, TriangleWidth.TextChanged
+        Dim hei As Integer = 0
+        Dim wid As Integer = 0
+        Integer.TryParse(TriangleWidth.Text, Wid)
+        Integer.TryParse(TriangleHeight.Text, Hei)
+        TriangleOut.Text = String.Format("{0} x {1} = {2} units²", wid, hei, wid * hei)
+
+    End Sub
+
+    Public Sub trapHeight_TextInput(sender As Object, e As TextChangedEventArgs) Handles TrapTop.TextChanged, TrapBottom.TextChanged, TrapHeight.TextChanged
+        Dim top As Integer = 0
+        Dim bot As Integer = 0
+        Dim hei As Integer = 0
+        Integer.TryParse(TrapTop.Text, top)
+        Integer.TryParse(TrapBottom.Text, bot)
+        Integer.TryParse(TrapHeight.Text, hei)
+
+        TrapOutTop.Text = String.Format("{0} x {1}", top, bot)
+        TrapOutHeight.Text = String.Format(" x {0} = {1} Units²", hei, Math.Round((top + bot) / 2 * hei, MidpointRounding.AwayFromZero))
+    End Sub
+
+    Private Sub RectangleWidth_PreviewKeyDown(sender As Object, e As KeyEventArgs) Handles RectangleWidth.PreviewKeyDown, RectangleHeight.PreviewKeyDown, TriangleHeight.PreviewKeyDown, TriangleWidth.PreviewKeyDown, _
+            TrapTop.PreviewKeyDown, TrapBottom.PreviewKeyDown
+        If Not IsDigit(e.Key) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Function IsDigit(key As Key) As Boolean
+        Select Case key
+            Case Key.D0
+            Case Key.D1
+            Case Key.D2
+            Case Key.D3
+            Case Key.D4
+            Case Key.D5
+            Case Key.D6
+            Case Key.D7
+            Case Key.D8
+            Case Key.D9
+            Case Key.D0
+            Case Key.NumLock
+            Case Key.NumPad0
+            Case Key.NumPad1
+            Case Key.NumPad2
+            Case Key.NumPad3
+            Case Key.NumPad4
+            Case Key.NumPad5
+            Case Key.NumPad6
+            Case Key.NumPad7
+            Case Key.NumPad8
+            Case Key.NumPad9
+            Case Key.Back
+            Case Else
+                Return False
+        End Select
+        Return True
+
+    End Function
+
 
 
 
