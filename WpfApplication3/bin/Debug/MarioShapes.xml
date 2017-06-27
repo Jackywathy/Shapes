@@ -54,6 +54,11 @@ MarioShapes
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="P:WPF_Shapes.My.Resources.Resources.overworld">
+<summary>
+  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+</summary>
+</member>
 <member name="T:WPF_Shapes.TwoDimShapes">
 <summary>
 TwoDimShapes

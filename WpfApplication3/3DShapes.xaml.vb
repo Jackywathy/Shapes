@@ -5,9 +5,7 @@ Public Class ThreeDimShapes
     Public ParentWindow As MainWindow
     Public SharedVars As Helper
 
-    Private Sub Button_Click(sender As Object, e As RoutedEventArgs)
 
-    End Sub
 
 
     Public Sub New(parent As MainWindow)
@@ -19,6 +17,7 @@ Public Class ThreeDimShapes
         Me.SharedVars = parent.SharedVars
 
         Me.DataContext = Me
+
     End Sub
 
 
@@ -38,6 +37,10 @@ Public Class ThreeDimShapes
 
     Private Sub Button_3D_pressed(sender As Object, e As RoutedEventArgs) Handles Button_3D.Click
         Throw New Exception("Already in 3D, cannot do  3D ^ 2")
+    End Sub
+
+    Private Sub Window_load(sender As Object, e As RoutedEventArgs)
+        SharedVars.PlayMusic("underground.wav")
     End Sub
 End Class
 

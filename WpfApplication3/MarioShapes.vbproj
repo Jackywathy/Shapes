@@ -168,6 +168,12 @@
     <Resource Include="images\images.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="images\toad.png" />
+    <Resource Include="images\yoshi.png" />
+    <Resource Include="music\jump.wav" />
+    <Resource Include="images\wario.png" />
+    <Resource Include="music\underground.wav" />
+    <Resource Include="music\overworld.wav" />
     <Resource Include="images\underground.jpg" />
     <Resource Include="images\images.jpg" />
     <Resource Include="images\aboveground.jpg" />
@@ -180,6 +186,27 @@
     <Resource Include="images\measure\marioblock.jpg" />
     <Resource Include="images\measure\placeholder.jpg" />
     <Resource Include="images\line.png" />
+    <Resource Include="images\measure\rectangle1.png" />
+    <Resource Include="images\measure\rectangle.png" />
+    <Resource Include="images\mario.png" />
+    <Resource Include="images\luigi.png" />
+    <Resource Include="images\measure\equal_tri.png" />
+    <Resource Include="images\measure\iso_tri.png" />
+    <Resource Include="images\measure\scal_tri.png" />
+    <Resource Include="images\measure\triangle1.png" />
+    <Resource Include="images\notunderground.jpg" />
+    <Resource Include="images\shapes\trapezium1.png" />
+    <Resource Include="images\arrow.png" />
+    <Resource Include="images\measure\trap_n.png" />
+    <Resource Include="images\measure\trap_iso.png" />
+    <Resource Include="images\goomba.png" />
+    <Resource Include="images\shapes\parallel.png" />
+    <Resource Include="images\measure\parallel1.png" />
+    <Resource Include="images\measure\parallel.png" />
+    <Resource Include="images\measure\circle_n.png" />
+    <Resource Include="images\measure\circle1.png" />
+    <Resource Include="images\measure\rhombus.png" />
+    <Resource Include="images\measure\rhombus1.png" />
     <Content Include="images\test.mp4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

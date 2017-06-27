@@ -1,4 +1,8 @@
-﻿Class MainWindow
+﻿Imports System.IO
+Imports System.Media
+Imports System.Windows.Resources
+
+Class MainWindow
     Public SharedVars As New Helper()
 
     Public current As Window = Me
@@ -41,6 +45,7 @@ Public Class Helper
     Private _isFullScreen As Boolean
     Private currentStyle As WindowStyle = WindowStyle.SingleBorderWindow
     Private currentState As WindowState = WindowState.Normal
+    Private player As SoundPlayer
 
     Public Property IsFullScreen As Boolean
         Get
@@ -92,4 +97,18 @@ Public Class Helper
     Public Shared Function GetImage(name As String) As BitmapImage
         Return New BitmapImage(ImageUri(name))
     End Function
+
+    Public Shared Function GetSound(name As String) As Stream
+        Return Application.GetResourceStream(New Uri("pack://application:,,,/MarioShapes;component/music/" + name)).Stream
+    End Function
+
+    Public Sub PlayMusic(name As String)
+        If player IsNot Nothing Then
+            player.Stop()
+        End If
+        player = New SoundPlayer(GetSound(name))
+        player.PlayLooping()
+    End Sub
+
+
 End Class

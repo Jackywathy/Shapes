@@ -5,14 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Name="TwoDimWindow"
         x:Class="TwoDimShapes"
         mc:Ignorable="d"
-        Title="2D Shapes" Height="750" Width="1200" KeyDown="Window_KeyDown" MinWidth="720" MinHeight="480" Background="#FF724747"
+        Title="2D Shapes" Height="750" Width="1200" KeyDown="Window_KeyDown" MinWidth="720" MinHeight="480"
         FontFamily="./Fonts/#Super Mario 256"
     
     >
+    <Window.Background>
+        <ImageBrush ImageSource="images/notunderground.jpg"/>
+    </Window.Background>
 
     <Grid x:Name="LayoutRoot" TextBlock.FontFamily="./Fonts/#Super Mario 256">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition Height="0.12*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
 
@@ -34,16 +37,21 @@
                 <TextBlock Foreground="LightGreen" FontFamily="./Fonts/#Super Mario 256" FontSize="60">S</TextBlock>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
-                <Button x:Name="Button_2D" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="15,5" Background="#FF3B8B43" IsEnabled="False" FontFamily="./Fonts/#Super Mario 256">
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right">
+
+                <!--<Button x:Name="Button_2D" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="15,5" Background="#FF3B8B43" IsEnabled="False" FontFamily="./Fonts/#Super Mario 256">
                     <Button.Effect>
                         <DropShadowEffect/>
                     </Button.Effect> 2D Shapes!
-                </Button>
-                <Button x:Name="Button_3D" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="15,5" Background="#FF3B8B43">
+                </Button>-->
+                <Button x:Name="Button_3D" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="15,5" BorderThickness="3">
+                    <Button.Background>
+                        <ImageBrush ImageSource="images/arrow.png"/>
+                    </Button.Background>
                     <Button.Effect>
                         <DropShadowEffect/>
-                    </Button.Effect> 3D Shapes!
+                    </Button.Effect>
+                    <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,30,0,0" Foreground="#FFFF0051" FontSize="16">3D Shapes!</TextBlock>
                 </Button>
             </StackPanel>
         </Grid>
@@ -51,34 +59,36 @@
         <Grid Row="1" Column="0" x:Name="TwoDimGrid" Margin="50"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="0.175*"/>
+                <ColumnDefinition Width="0.18*"/>
             </Grid.ColumnDefinitions>
 
             <TabControl x:Name="MainTab" Grid.Column="0" Background="WhiteSmoke" BorderBrush="Yellow" BorderThickness="15" FontFamily="./Fonts/#Super Mario 256">
                 <TabItem x:Name="RectangleTab" Visibility="Collapsed" FontFamily="./Fonts/#Super Mario 256">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.7*"/>
+                            <ColumnDefinition Width="0.6*"/>
                             <ColumnDefinition Width="0.3*"/>
                         </Grid.ColumnDefinitions>
 
                         <Border BorderBrush="Black" BorderThickness="0,0,2,0">
                             <Grid>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="0.05*"></RowDefinition>
+                                    <RowDefinition Height="0.0"></RowDefinition>
                                     <RowDefinition Height="0.4*"></RowDefinition>
                                     <RowDefinition Height="0.1*"></RowDefinition>
                                     <RowDefinition Height="0.1*"></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <Image x:Name="RectangleMeasure" Source="images/measure/placeholder.jpg" Grid.Row="1"></Image>
+                                <Image x:Name="RectangleMeasure" Source="images/measure/rectangle1.png" Grid.Row="1"/>
 
                                 <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0">
                                     <TextBlock FontFamily="./Fonts/#Super Mario 256"  Margin="10,0" FontSize="20">Width:</TextBlock>
                                     <TextBox FontFamily="./Fonts/#Super Mario 256" x:Name="RectangleWidth" Margin="10,0" MaxLength="2" Width="30" FontSize="20"></TextBox>
                                     <TextBlock FontFamily="./Fonts/#Super Mario 256" Margin="10,0" FontSize="20">Height:</TextBlock>
                                     <TextBox FontFamily="./Fonts/#Super Mario 256" x:Name="RectangleHeight" Margin="10,0" MaxLength="2" Width="30" FontSize="20"></TextBox>
+                           
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0">
+                                    
                                     <TextBlock FontFamily="./Fonts/#Super Mario 256" x:Name="RectangleOut" FontSize="25">Area = 0 x 0 = 0 units²</TextBlock>
                                 </StackPanel>
 
@@ -86,6 +96,33 @@
                         </Border>
 
                         <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.1*"></RowDefinition>
+                                <RowDefinition Height="0.2*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0" Source="images/mario.png"></Image>
+                            <StackPanel Grid.Row="1">
+                                <Label FontFamily="./Fonts/#Super Mario 256" FontSize="16" HorizontalAlignment="Center">A rectangle is a four-sided</Label>
+                                <Label FontSize="16" HorizontalAlignment="Center">flat shape</Label>
+                                <Label Foreground="#FF6C994E">- Each angle is a right angle</Label>
+                                <Label Foreground="#FFCD6930">- Opposite angles are parallel</Label>
+                                <Label Foreground="#FF19BED8" FontSize="11">- Opposite angles are equal length</Label>
+                                <Border BorderThickness="0,5,0,0" BorderBrush="Black" Margin="0,5,0,0">
+
+                                </Border>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                                        <ColumnDefinition Width="0.4*"></ColumnDefinition>
+                                        <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.Column="1" Source="images/measure/rectangle.png"></Image>
+                                </Grid>
+                                <Border BorderThickness="0,5,0,0" BorderBrush="Black" Margin="0,5,0,0">
+
+                                </Border>
+                                <Label FontSize="17" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF2D6EE0" HorizontalAlignment="Center" VerticalAlignment="Center">Area = Height x Width</Label>
+                            </StackPanel>
 
                         </Grid>
                     </Grid>
@@ -94,7 +131,7 @@
                 <TabItem x:Name="TriangleTab" Visibility="Collapsed">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.7*"/>
+                            <ColumnDefinition Width="0.6*"/>
                             <ColumnDefinition Width="0.3*"/>
                         </Grid.ColumnDefinitions>
 
@@ -106,7 +143,7 @@
                                     <RowDefinition Height="0.1*"></RowDefinition>
                                     <RowDefinition Height="0.1*"></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <Image x:Name="TriangleMeasure" Source="images/measure/placeholder.jpg" Grid.Row="1"></Image>
+                                <Image x:Name="TriangleMeasure" Source="images/measure/triangle1.png" Grid.Row="1"/>
 
                                 <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0">
                                     <TextBlock FontFamily="./Fonts/#Super Mario 256"  Margin="10,0" FontSize="20">Width:</TextBlock>
@@ -114,24 +151,72 @@
                                     <TextBlock FontFamily="./Fonts/#Super Mario 256" Margin="10,0" FontSize="20">Height:</TextBlock>
                                     <TextBox FontFamily="./Fonts/#Super Mario 256" x:Name="TriangleHeight" Margin="10,0" MaxLength="2" Width="30" FontSize="20"></TextBox>
                                 </StackPanel>
-                                
+
                                 <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0">
-                                    <TextBlock FontFamily="./Fonts/#Super Mario 256"  x:Name="TriangleOut" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center">Area = </TextBlock>
-                                    
+                                    <TextBlock FontFamily="./Fonts/#Super Mario 256"  x:Name="TriangleOut" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center">Area =</TextBlock>
+
                                     <StackPanel Orientation="Vertical">
                                         <TextBlock x:Name="TriangleTop" FontSize="25" HorizontalAlignment="Center">0 x 0</TextBlock>
                                         <Image Source="images/line.png" Width="120"></Image>
                                         <TextBlock x:Name="TriangleBottom" FontSize="25" HorizontalAlignment="Center">2</TextBlock>
-                                
+
                                     </StackPanel>
-                                    <TextBlock FontFamily="./Fonts/#Super Mario 256" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center">= 0 units²</TextBlock>
+                                    <TextBlock x:Name="TriangleRight" FontFamily="./Fonts/#Super Mario 256" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center">= 0 units²</TextBlock>
                                 </StackPanel>
 
                             </Grid>
                         </Border>
 
                         <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.1*"></RowDefinition>
+                                <RowDefinition Height="0.4*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0" Source="images/luigi.png"></Image>
+                            <StackPanel Grid.Row="1">
+                                <Label FontFamily="./Fonts/#Super Mario 256" FontSize="15" HorizontalAlignment="Center">A triangle is a three-sided</Label>
+                                <Label FontSize="16" HorizontalAlignment="Center">flat shape</Label>
+                                <Label Foreground="#FF6C994E">- The three angles add to 180°</Label>
+                                <Label Foreground="#FFCD6930">- There are three types of triangle</Label>
+                                <Border BorderThickness="0,5,0,0" BorderBrush="Black" Margin="0,5,0,0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                                            <ColumnDefinition Width="0.7*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
 
+                                        <StackPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Label Foreground="#FF551136">Equilateral</Label>
+                                            <Label>- Three equal sides</Label>
+                                            <Label>- Three equal angles</Label>
+                                        </StackPanel>
+                                        <Image Grid.Row="0" Grid.Column="1" Source="images/measure/equal_tri.png"></Image>
+
+                                        <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Label Foreground="#FFDC1E1E">Isocelles</Label>
+                                            <Label>- Two equal sides</Label>
+                                            <Label>- Two equal angles</Label>
+                                        </StackPanel>
+                                        <Image Grid.Row="1" Grid.Column="1" Source="images/measure/iso_tri.png"></Image>
+
+                                        <StackPanel Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Label Foreground="#FF25870F">Scalene</Label>
+                                            <Label>- No equal sides</Label>
+                                            <Label>- Two equal angles</Label>
+                                        </StackPanel>
+                                        <Image Grid.Row="2" Grid.Column="1" Source="images/measure/scal_tri.png"></Image>
+                                    </Grid>
+                                </Border>
+                                <Border BorderThickness="0,5,0,0" BorderBrush="Black" Margin="0,5,0,0">
+
+                                </Border>
+                                <Label FontSize="17" Foreground="#FF2D6EE0" VerticalAlignment="Center" HorizontalAlignment="Center">Area = Width x Height ÷ 2</Label>
+                            </StackPanel>
                         </Grid>
                     </Grid>
                 </TabItem>
@@ -139,7 +224,7 @@
                 <TabItem x:Name="TrapeziumTab" Visibility="Collapsed">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.7*"/>
+                            <ColumnDefinition Width="0.6*"/>
                             <ColumnDefinition Width="0.3*"/>
                         </Grid.ColumnDefinitions>
 
@@ -151,45 +236,273 @@
                                     <RowDefinition Height="0.1*"></RowDefinition>
                                     <RowDefinition Height="0.1*"></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <Image x:Name="TrapeziumMeasure" Source="images/measure/placeholder.jpg" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                                <Image x:Name="TrapeziumMeasure" Source="images/shapes/trapezium1.png" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
 
                                 <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0">
-                                    <TextBlock FontFamily="./Fonts/#Super Mario 256"  Margin="10,0">Top Length:</TextBlock>
-                                    <TextBox FontFamily="./Fonts/#Super Mario 256" x:Name="TrapTop" Margin="10,0" MaxLength="2" Width="24"></TextBox>
-                                    <TextBlock FontFamily="./Fonts/#Super Mario 256" Margin="10,0">Bottom Length:</TextBlock>
-                                    <TextBox FontFamily="./Fonts/#Super Mario 256" x:Name="TrapBottom" Margin="10,0" MaxLength="2" Width="24"></TextBox>
-                                    <TextBlock FontFamily="./Fonts/#Super Mario 256" Margin="10,0">Height:</TextBlock>
-                                    <TextBox FontFamily="./Fonts/#Super Mario 256" x:Name="TrapHeight" Margin="10,0" MaxLength="2" Width="24"></TextBox>
+                                    <TextBlock FontFamily="./Fonts/#Super Mario 256"  Margin="10,0" FontSize="16">Top Length:</TextBlock>
+                                    <TextBox FontFamily="./Fonts/#Super Mario 256" x:Name="TrapTop" Margin="10,0" MaxLength="2" Width="24" FontSize="16"></TextBox>
+                                    <TextBlock FontFamily="./Fonts/#Super Mario 256" Margin="10,0" FontSize="16">Bottom Length:</TextBlock>
+                                    <TextBox FontFamily="./Fonts/#Super Mario 256" x:Name="TrapBottom" Margin="10,0" MaxLength="2" Width="24" FontSize="16"></TextBox>
+                                    <TextBlock FontFamily="./Fonts/#Super Mario 256" Margin="10,0" FontSize="16">Height:</TextBlock>
+                                    <TextBox FontFamily="./Fonts/#Super Mario 256" x:Name="TrapHeight" Margin="10,0" MaxLength="2" Width="24" FontSize="16"></TextBox>
                                 </StackPanel>
 
                                 <StackPanel Grid.Row="3"  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                    <TextBlock FontFamily="./Fonts/#Super Mario 256" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">Area =</TextBlock>
+                                    <TextBlock FontFamily="./Fonts/#Super Mario 256" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25">Area =</TextBlock>
                                     <StackPanel>
-                                        <TextBlock x:Name="TrapOutTop" HorizontalAlignment="Center" FontFamily="./Fonts/#Super Mario 256" FontSize="20">0 + 0 </TextBlock>
+                                        <TextBlock x:Name="TrapOutTop" HorizontalAlignment="Center" FontFamily="./Fonts/#Super Mario 256" FontSize="25">0 + 0</TextBlock>
                                         <Image Source="images/line.png" HorizontalAlignment="Center" MaxWidth="120"></Image>
-                                        <TextBlock FontFamily="./Fonts/#Super Mario 256" x:Name="TrapOutBottom" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">2</TextBlock>
+                                        <TextBlock FontFamily="./Fonts/#Super Mario 256" x:Name="TrapOutBottom" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25">2</TextBlock>
                                     </StackPanel>
-                                    <TextBlock FontFamily="./Fonts/#Super Mario 256" x:Name="TrapOutHeight" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"> x 0 = 0 cm²</TextBlock>
+                                    <TextBlock FontFamily="./Fonts/#Super Mario 256" x:Name="TrapOutHeight" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"> x 0 = 0 cm²</TextBlock>
                                 </StackPanel>
                             </Grid>
                         </Border>
 
                         <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.1*"></RowDefinition>
+                                <RowDefinition Height="0.4*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0" Source="images/wario.png"></Image>
+                            <StackPanel Grid.Row="1">
+                                <Label FontFamily="./Fonts/#Super Mario 256" FontSize="15" HorizontalAlignment="Center">A trapeizum is a four-sided</Label>
+                                <Label FontSize="16" HorizontalAlignment="Center">flat shape</Label>
+                                <Label Foreground="#FF6C994E">- They have one pair of parallel sides</Label>
+                                <Label Foreground="#FFCD6930">- There are two types of trapeziums</Label>
+                                <Border BorderThickness="0,5,0,0" BorderBrush="Black" Margin="0,5,0,0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                                            <ColumnDefinition Width="0.7*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
 
+                                        <StackPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Label Foreground="#FF551136">Trapezium</Label>
+                                            <Label>- No Equal Angles</Label>
+                                            <Label>- Three equal angles</Label>
+                                        </StackPanel>
+                                        <Image Grid.Row="0" Grid.Column="1" Source="images/measure/trap_n.png"></Image>
+
+                                        <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Label Foreground="#FFDC1E1E">Isocelles Trapezium</Label>
+                                            <Label>- Two equal equals</Label>
+                                            <Label>- Two sides are equal</Label>
+                                        </StackPanel>
+                                        <Image Grid.Row="1" Grid.Column="1" Source="images/measure/trap_iso.png"></Image>
+
+                                    </Grid>
+                                </Border>
+                                <Border BorderBrush="Black" BorderThickness="0,5,0,0">
+                                </Border>
+                                <Label FontSize="15" Foreground="#FF2D6EE0" VerticalAlignment="Center" HorizontalAlignment="Center">Area = (Top+Bottom)÷2 x Height</Label>
+                            </StackPanel>
                         </Grid>
                     </Grid>
                 </TabItem>
 
                 <TabItem x:Name="ParallelTab" Visibility="Collapsed">
-                    <Label Content="Not Hi"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.6*"/>
+                            <ColumnDefinition Width="0.3*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border BorderBrush="Black" BorderThickness="0,0,2,0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0.05*"></RowDefinition>
+                                    <RowDefinition Height="0.5*"></RowDefinition>
+                                    <RowDefinition Height="0.1*"></RowDefinition>
+                                    <RowDefinition Height="0.1*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Image x:Name="ParallelMeasure" Source="images/measure/parallel1.png" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+
+                                <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0">
+                                    <TextBlock FontFamily="./Fonts/#Super Mario 256"  Margin="10,0" FontSize="20">Width:</TextBlock>
+                                    <TextBox FontFamily="./Fonts/#Super Mario 256" x:Name="ParallelWidth" Margin="10,0" MaxLength="2" Width="30" FontSize="20"></TextBox>
+                                    <TextBlock FontFamily="./Fonts/#Super Mario 256" Margin="10,0" FontSize="20">Height:</TextBlock>
+                                    <TextBox FontFamily="./Fonts/#Super Mario 256" x:Name="ParallelHeight" Margin="10,0" MaxLength="2" Width="30" FontSize="20"></TextBox>
+
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="3"  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <TextBlock x:Name="ParallelOut" FontFamily="./Fonts/#Super Mario 256" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25">Area = 0 x 0 = 0 units²</TextBlock>
+
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.1*"></RowDefinition>
+                                <RowDefinition Height="0.4*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0" Source="images/goomba.png"></Image>
+                            <StackPanel Grid.Row="1">
+                                <Label FontFamily="./Fonts/#Super Mario 256" FontSize="15" HorizontalAlignment="Center">A parallelogram is a four</Label>
+                                <Label FontSize="16" HorizontalAlignment="Center">sided flat shape</Label>
+                                <Label Foreground="#FF6C994E">- They have two pair of parallel sides</Label>
+                                <Label Foreground="#FF357A2E">- Opposite Sides are parallel</Label>
+                                <Label Foreground="#FFC519E0">- Opposite Sides are equal in length</Label>
+                                <Label Foreground="#FF36B9B3">- Opposite angles are equal</Label>
+                                <Label Foreground="#FFCD6930">- There is only one type of this shape</Label>
+                                
+                                <Border BorderThickness="0,5,0,0" BorderBrush="Black" Margin="0,5,0,0">
+                                    
+                                </Border>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                                        <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.Column="1" Source="images/measure/parallel.png"></Image>
+                                </Grid>
+                                <Border BorderThickness="0,5,0,0" BorderBrush="Black" Margin="0,5,0,0">
+
+                                </Border>
+                                <Label FontSize="15" Foreground="#FF2D6EE0" VerticalAlignment="Center" HorizontalAlignment="Center">Area = Width x Height</Label>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
                 </TabItem>
 
                 <TabItem x:Name="CircleTab" Visibility="Collapsed">
-                    <Label Content="Not Hi"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.6*"/>
+                            <ColumnDefinition Width="0.3*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border BorderBrush="Black" BorderThickness="0,0,2,0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0.05*"></RowDefinition>
+                                    <RowDefinition Height="0.5*"></RowDefinition>
+                                    <RowDefinition Height="0.1*"></RowDefinition>
+                                    <RowDefinition Height="0.1*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Image x:Name="CircleMeasure" Source="images/measure/circle1.png" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+
+                                <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0">
+                                    <TextBlock FontFamily="./Fonts/#Super Mario 256"  Margin="10,0" FontSize="20">Radius:</TextBlock>
+                                    <TextBox FontFamily="./Fonts/#Super Mario 256" x:Name="CircleRadius" Margin="10,0" MaxLength="2" Width="30" FontSize="20"></TextBox>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="3"  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <TextBlock x:Name="CircleOut" FontFamily="./Fonts/#Super Mario 256" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25">Area = 0 x 0 x 3.14 = 0 units²</TextBlock>
+
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.1*"></RowDefinition>
+                                <RowDefinition Height="0.4*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0" Source="images/toad.png"></Image>
+                            <StackPanel Grid.Row="1" HorizontalAlignment="Center">
+                                <Label FontFamily="./Fonts/#Super Mario 256" FontSize="16" HorizontalAlignment="Center">A circle is a round</Label>
+                                <Label FontSize="16" HorizontalAlignment="Center">flat shape</Label>
+                                <Label Foreground="#FF6C994E">- The distance from the middle</Label>
+                                <Label Foreground="#FF6C994E" Content="  to any part of the side is equal!"></Label>
+                                <Label Foreground="#FFC519E0">- The diameter goes from one side</Label>
+                                <Label Foreground="#FFC519E0" Content="  to the middle, out the other"></Label>
+                                <Label Foreground="#FFCD6930">- The radius is half the diameter</Label>
+
+                                <Border BorderThickness="0,5,0,0" BorderBrush="Black" Margin="0,5,0,0">
+
+                                </Border>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                                        <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.Column="1" Source="images/measure/circle_n.png"></Image>
+                                </Grid>
+                                <Border BorderThickness="0,5,0,0" BorderBrush="Black" Margin="0,5,0,0">
+
+                                </Border>
+                                <Label FontSize="15" Foreground="#FF2D6EE0" VerticalAlignment="Center" HorizontalAlignment="Center">Area = πr²</Label>
+                                <Label FontSize="9"> - π is a special number, that equals about 3.14</Label>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
                 </TabItem>
 
-                <TabItem x:Name="EclipseTab" Visibility="Collapsed">
-                    <Label Content="Not Hi"/>
+                <TabItem x:Name="RhombusTab" Visibility="Collapsed">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.6*"/>
+                            <ColumnDefinition Width="0.3*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border BorderBrush="Black" BorderThickness="0,0,2,0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0.05*"></RowDefinition>
+                                    <RowDefinition Height="0.5*"></RowDefinition>
+                                    <RowDefinition Height="0.1*"></RowDefinition>
+                                    <RowDefinition Height="0.1*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Image x:Name="RhombusMeasure" Source="images/measure/rhombus1.png" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+
+                                <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0">
+                                    <TextBlock FontFamily="./Fonts/#Super Mario 256"  Margin="10,0" FontSize="20">Diagonal 1:</TextBlock>
+                                    <TextBox FontFamily="./Fonts/#Super Mario 256" x:Name="RhombusD1" Margin="10,0" MaxLength="2" Width="30" FontSize="20"></TextBox>
+                                    <TextBlock FontFamily="./Fonts/#Super Mario 256" Margin="10,0" FontSize="20">Diagonal 2:</TextBlock>
+                                    <TextBox FontFamily="./Fonts/#Super Mario 256" x:Name="RhombusD2" Margin="10,0" MaxLength="2" Width="30" FontSize="20"></TextBox>
+
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="3"  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <TextBlock x:Name="RhombusOut" FontFamily="./Fonts/#Super Mario 256" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25">Area = 0 x 0 = 0 units²</TextBlock>
+
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.1*"></RowDefinition>
+                                <RowDefinition Height="0.4*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0" Source="images/yoshi.png"></Image>
+                            <StackPanel Grid.Row="1">
+                                <Label FontFamily="./Fonts/#Super Mario 256" FontSize="15" HorizontalAlignment="Center">A rhombus is a four</Label>
+                                <Label FontSize="16" HorizontalAlignment="Center">sided flat shape</Label>
+                                <Label Foreground="#FF6C994E">- All sides are equal in length</Label>
+                                <Label Foreground="#FF357A2E">- Opposite sides are parallel</Label>
+                                <Label Foreground="#FFC519E0">- Opposite sides are equal</Label>
+                                <Label Foreground="#FF36B9B3">- The diagonals are created by</Label>
+                                <Label Foreground="#FF36B9B3" Content="  lines from opposite corners"></Label>
+                                <Label Foreground="#FFCD6930">- There is only one type of this shape</Label>
+
+                                <Border BorderThickness="0,5,0,0" BorderBrush="Black" Margin="0,5,0,0">
+
+                                </Border>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                                        <ColumnDefinition Width="0.4*"></ColumnDefinition>
+                                        <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.Column="1" Source="images/measure/rhombus.png"></Image>
+                                </Grid>
+                                <Border BorderThickness="0,5,0,0" BorderBrush="Black" Margin="0,5,0,0">
+
+                                </Border>
+                                <Label FontSize="15" Foreground="#FF2D6EE0" VerticalAlignment="Center" HorizontalAlignment="Center">Area = Diagonal1 x Diagonal2</Label>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
                 </TabItem>
             </TabControl>
 
@@ -267,9 +580,9 @@
                         </Grid.RowDefinitions>
 
                         <TextBlock FontFamily="./Fonts/#Super Mario 256" Foreground="Black" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                Rhombus
+                                Parallelogram
                         </TextBlock>
-                        <Image Grid.Row="1" Source="images/shapes/rhombus.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Image Grid.Row="1" Source="images/shapes/parallel.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </Button>
 
@@ -286,14 +599,14 @@
                     </Grid>
                 </Button>
 
-                <Button x:Name="EllipseButton" Margin="0,5" Grid.Row="5" Padding="5" Background="OrangeRed" >
+                <Button x:Name="RhombusButton" Margin="0,5" Grid.Row="5" Padding="5" Background="OrangeRed" >
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="0.5*"></RowDefinition>
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <TextBlock FontFamily="./Fonts/#Super Mario 256" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center">Ellipse</TextBlock>
-                        <Image Grid.Row="1" Source="images/shapes/oval.png"/>
+                        <TextBlock FontFamily="./Fonts/#Super Mario 256" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center">Rhombus</TextBlock>
+                        <Image Grid.Row="1" Source="images/shapes/rhombus.png"/>
                     </Grid>
                 </Button>
 

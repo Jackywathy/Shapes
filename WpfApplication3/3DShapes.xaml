@@ -24,7 +24,7 @@
             </Grid.ColumnDefinitions>
 
 
-            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" FontFamily="Showcard Gothic" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" TextDecorations="Underline" Margin="0"><Run Text="Choose a Shape"/></TextBlock>
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" FontFamily="Showcard Gothic" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" TextDecorations="Underline" Margin="0" Loaded="Window_load"><Run Text="Choose a Shape"/></TextBlock>
 
 
             <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0">

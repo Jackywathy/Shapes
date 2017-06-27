@@ -1,4 +1,5 @@
 ﻿Imports System.Collections.Specialized
+Imports System.Media
 
 Public Class TwoDimShapes
     Implements INotifyCollectionChanged
@@ -22,7 +23,7 @@ Public Class TwoDimShapes
         Me.SharedVars = parent.SharedVars
 
         Me.DataContext = Me
-        Buttons = New List(Of Button) From {RectangleButton, CircleButton, TrapeziumButton, TriangleButton, ParallelButton, EllipseButton}
+        Buttons = New List(Of Button) From {RectangleButton, CircleButton, TrapeziumButton, TriangleButton, ParallelButton, RhombusButton}
 
 
         Rectangle_Button_Click(RectangleButton, Nothing)
@@ -38,10 +39,10 @@ Public Class TwoDimShapes
 
     End Sub
 
-    Private Sub Button_2D_Click(sender As Object, e As RoutedEventArgs) Handles Button_2D.Click
-        ' this should be impossible, as this is the 2d shape frame!
-        Throw New Exception("THIS IS IMPOSSIBLE!!!!!! YOUR ALREADY 2D dammmmmit")
-    End Sub
+    'Private Sub Button_2D_Click(sender As Object, e As RoutedEventArgs) Handles Button_2D.Click
+    '    ' this should be impossible, as this is the 2d shape frame!
+    '    Throw New Exception("THIS IS IMPOSSIBLE!!!!!! YOUR ALREADY 2D dammmmmit")
+    'End Sub
 
     Private Sub Button_3D_Click(sender As Object, e As RoutedEventArgs) Handles Button_3D.Click
         ParentWindow.switchTo(New ThreeDimShapes(ParentWindow))
@@ -56,7 +57,7 @@ Public Class TwoDimShapes
     End Sub
 
 
-    Private Sub Rectangle_Button_Click(sender As Object, e As RoutedEventArgs) Handles RectangleButton.Click, TrapeziumButton.Click, ParallelButton.Click, CircleButton.Click, EllipseButton.Click, ParallelButton.Click, TriangleButton.Click
+    Private Sub Rectangle_Button_Click(sender As Object, e As RoutedEventArgs) Handles RectangleButton.Click, TrapeziumButton.Click, ParallelButton.Click, CircleButton.Click, RhombusButton.Click, ParallelButton.Click, TriangleButton.Click
         ' assume sender is Button
         ClearButtons()
         Dim senderButton As Button = sender
@@ -72,13 +73,13 @@ Public Class TwoDimShapes
             TriangleTab.IsSelected = True
         ElseIf senderButton.Equals(ParallelButton) Then
             MainTab.BorderBrush = ParallelButton.Background
-            ParallelTab.IsEnabled = True
+            ParallelTab.IsSelected = True
         ElseIf senderButton.Equals(CircleButton) Then
             MainTab.BorderBrush = CircleButton.Background
-            CircleTab.IsEnabled = True
-        ElseIf senderButton.Equals(EllipseButton) Then
-            MainTab.BorderBrush = EllipseButton.Background
-            EclipseTab.IsSelected = True
+            CircleTab.IsSelected = True
+        ElseIf senderButton.Equals(RhombusButton) Then
+            MainTab.BorderBrush = RhombusButton.Background
+            RhombusTab.IsSelected = True
         End If
         senderButton.Margin = New Thickness(0, 5, 0, 5)
 
@@ -90,20 +91,31 @@ Public Class TwoDimShapes
     Private Sub rectangleHeight_TextInput(sender As Object, e As TextChangedEventArgs) Handles RectangleHeight.TextChanged, RectangleWidth.TextChanged
         Dim hei As Integer = 0
         Dim wid As Integer = 0
-        Integer.TryParse(RectangleWidth.Text, Wid)
-        Integer.TryParse(RectangleHeight.Text, Hei)
-        RectangleOut.Text = String.Format("{0} x {1} = {2} units²", wid, hei, wid * hei)
+        Integer.TryParse(RectangleWidth.Text, wid)
+        Integer.TryParse(RectangleHeight.Text, hei)
+        RectangleOut.Text = String.Format("Area = {0} x {1} = {2} units²", wid, hei, wid * hei)
 
     End Sub
 
     Private Sub triangleHeight_TextInput(sender As Object, e As TextChangedEventArgs) Handles TriangleHeight.TextChanged, TriangleWidth.TextChanged
         Dim hei As Integer = 0
         Dim wid As Integer = 0
-        Integer.TryParse(TriangleWidth.Text, Wid)
-        Integer.TryParse(TriangleHeight.Text, Hei)
-        TriangleOut.Text = String.Format("{0} x {1} = {2} units²", wid, hei, wid * hei)
+        Integer.TryParse(TriangleWidth.Text, wid)
+        Integer.TryParse(TriangleHeight.Text, hei)
+        TriangleTop.Text = String.Format("{0} x {1}", wid, hei)
+        TriangleRight.Text = String.Format("= {0} units²", Math.Round((wid * hei / 2), MidpointRounding.AwayFromZero))
 
     End Sub
+
+    Private Sub parallelHeight_TextInput(sender As Object, e As TextChangedEventArgs) Handles ParallelHeight.TextChanged, ParallelWidth.TextChanged
+        Dim hei As Integer = 0
+        Dim wid As Integer = 0
+        Integer.TryParse(ParallelHeight.Text, wid)
+        Integer.TryParse(ParallelWidth.Text, hei)
+        ParallelOut.Text = String.Format("{0} x {1} = {2} units²", wid, hei, wid * hei)
+
+    End Sub
+
 
     Public Sub trapHeight_TextInput(sender As Object, e As TextChangedEventArgs) Handles TrapTop.TextChanged, TrapBottom.TextChanged, TrapHeight.TextChanged
         Dim top As Integer = 0
@@ -113,18 +125,34 @@ Public Class TwoDimShapes
         Integer.TryParse(TrapBottom.Text, bot)
         Integer.TryParse(TrapHeight.Text, hei)
 
-        TrapOutTop.Text = String.Format("{0} x {1}", top, bot)
-        TrapOutHeight.Text = String.Format(" x {0} = {1} Units²", hei, Math.Round((top + bot) / 2 * hei, MidpointRounding.AwayFromZero))
+        TrapOutTop.Text = String.Format("{0} + {1}", top, bot)
+        TrapOutHeight.Text = String.Format(" x {0} = {1} units²", hei, Math.Round((top + bot) / 2 * hei, MidpointRounding.AwayFromZero))
     End Sub
 
-    Private Sub RectangleWidth_PreviewKeyDown(sender As Object, e As KeyEventArgs) Handles RectangleWidth.PreviewKeyDown, RectangleHeight.PreviewKeyDown, TriangleHeight.PreviewKeyDown, TriangleWidth.PreviewKeyDown, _
-            TrapTop.PreviewKeyDown, TrapBottom.PreviewKeyDown
+    Public Sub circleHeight_TextInput(sender As Object, e As TextChangedEventArgs) Handles CircleRadius.TextChanged
+        Dim rad As Integer = 0
+        Integer.TryParse(CircleRadius.Text, rad)
+
+        CircleOut.Text = String.Format("Area = {0} x {1} x 3.14 = {2} units²", rad, rad, Math.Round(rad * rad * Math.PI, MidpointRounding.AwayFromZero))
+    End Sub
+
+    Public Sub rhombus_TextInput(sender As Object, e As TextChangedEventArgs) Handles RhombusD1.TextChanged, RhombusD2.TextChanged
+        Dim d1 As Integer = 0
+        Dim d2 As Integer = 0
+        Integer.TryParse(RhombusD1.Text, d1)
+        Integer.TryParse(RhombusD2.Text, d2)
+
+        RhombusOut.Text = String.Format("Area = {0} x {1} = {2} units²", d1, d2, d1 * d2)
+    End Sub
+
+    Private Sub RectangleWidth_PreviewKeyDown(sender As Object, e As KeyEventArgs) Handles RectangleWidth.PreviewKeyDown, RectangleHeight.PreviewKeyDown, TriangleHeight.PreviewKeyDown, TriangleWidth.PreviewKeyDown,
+            TrapTop.PreviewKeyDown, TrapBottom.PreviewKeyDown, ParallelHeight.PreviewKeyDown, ParallelWidth.PreviewKeyDown, CircleRadius.PreviewKeyDown, RhombusD1.PreviewKeyDown, RhombusD2.PreviewKeyDown
         If Not IsDigit(e.Key) Then
             e.Handled = True
         End If
     End Sub
 
-    Private Function IsDigit(key As Key) As Boolean
+    Public Shared Function IsDigit(key As Key) As Boolean
         Select Case key
             Case Key.D0
             Case Key.D1
@@ -153,9 +181,16 @@ Public Class TwoDimShapes
                 Return False
         End Select
         Return True
-
     End Function
 
+
+
+
+    Private Sub TwoDimWindow_Loaded(sender As Object, e As RoutedEventArgs) Handles TwoDimWindow.Loaded
+        SharedVars.PlayMusic("overworld.wav")
+    End Sub
+
+    Private player As SoundPlayer
 
 
 
