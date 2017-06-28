@@ -37,6 +37,9 @@ Class MainWindow
         current = child
     End Sub
 
+    Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
+        SharedVars.PlayMusic("intro.wav")
+    End Sub
 
 End Class
 
@@ -83,6 +86,10 @@ Public Class Helper
         control.WindowState = currentState
     End Sub
 
+    Sub New
+
+    End Sub
+
     Public Sub ToggleFullScreen()
         IsFullScreen = Not IsFullScreen
     End Sub
@@ -102,6 +109,10 @@ Public Class Helper
         Return Application.GetResourceStream(New Uri("pack://application:,,,/MarioShapes;component/music/" + name)).Stream
     End Function
 
+    Public Shared Function GetSoundPac(name As String) As Uri
+        Return New Uri("pack://application:,,,/MarioShapes;component/music/" + name)
+    End Function
+
     Public Sub PlayMusic(name As String)
         If player IsNot Nothing Then
             player.Stop()
@@ -110,5 +121,13 @@ Public Class Helper
         player.PlayLooping()
     End Sub
 
+    Public Sub StopMusic()
+        If player isNot Nothing Then
+            player.Stop()
+        End If
+    End Sub
+
+
+    
 
 End Class

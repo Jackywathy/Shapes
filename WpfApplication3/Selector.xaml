@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Shapes"
         mc:Ignorable="d"
-        Title="Selector" Height="300" Width="300">
+        Title="Selector" Height="300" Width="300" Loaded="Window_Loaded">
     <Window.Background>
         <ImageBrush ImageSource="images/images.jpg"/>
     </Window.Background>

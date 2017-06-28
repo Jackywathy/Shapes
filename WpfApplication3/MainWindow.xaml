@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="700" KeyDown="Window_KeyDown" WindowStyle="None"
+        Title="MainWindow" Height="500" Width="700" KeyDown="Window_KeyDown" WindowStyle="None" Loaded="Window_Loaded" 
+        
       >
     <Window.Background>
         <ImageBrush ImageSource="images/background.png"/>
@@ -15,8 +16,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
 
-        <Label FontFamily="Rockwell Extra Bold" FontSize="55" Foreground="White" Content="Special Shapes!"/>
+        <Label FontFamily="./Fonts/#Super Mario 256" FontSize="55" Foreground="Black" Content="Special Shapes!" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
     </Grid>
 </Window>

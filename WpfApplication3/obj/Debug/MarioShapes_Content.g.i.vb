@@ -11,5 +11,5 @@
 Option Strict Off
 Option Explicit On
 
-<Assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/test.mp4")> 
+<Assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("music/intro.wav")> 
 

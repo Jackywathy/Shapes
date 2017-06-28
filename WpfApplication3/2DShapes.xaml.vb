@@ -1,6 +1,5 @@
 ﻿Imports System.Collections.Specialized
 Imports System.Media
-Imports System.Windows.Controls.Primitives
 
 Public Class TwoDimShapes
     Implements INotifyCollectionChanged
@@ -191,10 +190,15 @@ Public Class TwoDimShapes
         SharedVars.PlayMusic("overworld.wav")
     End Sub
 
-    Private player As SoundPlayer
-
     Private Sub ButtonBack_Click(sender As Object, e As RoutedEventArgs) Handles ButtonBack.Click
         ParentWindow.switchTo(New SelectorScreen(ParentWindow))
+    End Sub
+
+    Private Sub TwoDimWindow_Closed(sender As Object, e As EventArgs) Handles TwoDimWindow.Closed
+        SharedVars.StopMusic()
+    End Sub
+
+    Private Sub RectangleButton_MouseEnter(sender As Object, e As MouseEventArgs) Handles RectangleButton.MouseEnter, TriangleButton.MouseEnter, ParallelButton.MouseEnter, CircleButton.MouseEnter, RhombusButton.MouseEnter, ParallelButton.MouseEnter
     End Sub
 
 

@@ -88,10 +88,8 @@ C:\Users\Jack Jiang\Desktop\WpfApplication3\WpfApplication3\obj\Debug\MainWindow
 C:\Users\Jack Jiang\Desktop\WpfApplication3\WpfApplication3\obj\Debug\Quiz.g.vb
 C:\Users\Jack Jiang\Desktop\WpfApplication3\WpfApplication3\obj\Debug\Selector.g.vb
 C:\Users\Jack Jiang\Desktop\WpfApplication3\WpfApplication3\obj\Debug\Application.g.vb
-C:\Users\Jack Jiang\Desktop\WpfApplication3\WpfApplication3\obj\Debug\MarioShapes_Content.g.vb
 C:\Users\Jack Jiang\Desktop\WpfApplication3\WpfApplication3\obj\Debug\MarioShapes_MarkupCompile.cache
 C:\Users\Jack Jiang\Desktop\WpfApplication3\WpfApplication3\obj\Debug\MarioShapes_MarkupCompile.lref
-C:\Users\Jack Jiang\Desktop\WpfApplication3\WpfApplication3\bin\Debug\images\test.mp4
 C:\Users\Jack Jiang\Desktop\WpfApplication3\WpfApplication3\bin\Debug\MarioShapes.exe
 C:\Users\Jack Jiang\Desktop\WpfApplication3\WpfApplication3\bin\Debug\MarioShapes.pdb
 C:\Users\Jack Jiang\Desktop\WpfApplication3\WpfApplication3\bin\Debug\MarioShapes.xml
@@ -128,3 +126,5 @@ C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\obj\Debug\Selector.baml
 C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\obj\Debug\MarioShapes.g.resources
 C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\obj\Debug\WPF_Shapes.Resources.resources
 C:\Users\Jacky\Desktop\MarioShapes\WpfApplication3\obj\Debug\MarioShapes.vbproj.GenerateResource.Cache
+C:\Users\Jack Jiang\Desktop\WpfApplication3\WpfApplication3\bin\Debug\WpfAnimatedGif.dll
+C:\Users\Jack Jiang\Desktop\WpfApplication3\WpfApplication3\bin\Debug\WpfAnimatedGif.xml

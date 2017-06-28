@@ -2,12 +2,14 @@
 
 Public Class SelectorScreen
     Private parentWindow As MainWindow
+    Private SharedVars As Helper
     Sub New(parent As MainWindow)
         ' This call is required by the designer.
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
         parentWindow = parent
+        SharedVars = parentWindow.SharedVars
     End Sub
 
     Private Sub OverPipe(sender As Object, e As MouseEventArgs)
@@ -20,7 +22,7 @@ Public Class SelectorScreen
     End Sub
 
     Private Sub quiz_Click(sender As Object, e As RoutedEventArgs) Handles quizButton.Click
-
+        parentWindow.switchTo(new Quiz(parentWindow))
     End Sub
 
     Private Sub TwoDimButton_Click(sender As Object, e As RoutedEventArgs) Handles TwoDimButton.Click
@@ -32,5 +34,9 @@ Public Class SelectorScreen
             parentWindow.SharedVars.ToggleFullScreen()
         End If
 
+    End Sub
+
+    Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
+        SharedVars.PlayMusic("intro.wav")
     End Sub
 End Class
