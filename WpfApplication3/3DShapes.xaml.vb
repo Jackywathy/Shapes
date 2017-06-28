@@ -5,9 +5,10 @@ Public Class ThreeDimShapes
     Public SharedVars As Helper
 
     Public Buttons As List(Of Button)
+    Public lock as Boolean
 
 
-    Public Sub New(parent As MainWindow)
+    Public Sub New(parent As MainWindow, Optional Lock As Boolean=False)
         ' This call is required by the designer.
         InitializeComponent()
 
@@ -20,6 +21,7 @@ Public Class ThreeDimShapes
 
 
         Rectangle_Button_Click(RectangleButton, Nothing)
+        Me.lock = lock
     End Sub
 
 
@@ -79,7 +81,7 @@ Public Class ThreeDimShapes
         Integer.TryParse(CylinderHeight.Text, hei)
         Integer.TryParse(CylinderRadius.Text, rad)
 
-        SphereOut.Content = String.Format("Volume = 3.14 x {0}² x {1} = {2}", rad, hei,  Math.Round(Math.PI * rad * rad * hei, MidpointRounding.AwayFromZero))
+        CylinderOut.Text = String.Format("Volume = 3.14 x {0}² x {1} = {2}", rad, hei,  Math.Round(Math.PI * rad * rad * hei, MidpointRounding.AwayFromZero))
     End Sub
 
     Private Sub coneTab_TextInput(sender As Object, e As TextChangedEventArgs) Handles ConeRadius.TextChanged, ConeHeight.TextChanged
@@ -98,7 +100,15 @@ Public Class ThreeDimShapes
 
 
     Private Sub Button_2D_pressed(sender As Object, e As RoutedEventArgs) Handles Button_2D.Click
-        ParentWindow.switchTo(New TwoDimShapes(ParentWindow))
+        If lock
+            Me.Close()
+            Dim x as New TwoDimShapes(ParentWindow, True)
+            x.Show()
+
+           Else
+               ParentWindow.switchTo(New TwoDimShapes(ParentWindow))
+        End If
+        
     End Sub
 
     Private Sub RectangleWidth_PreviewKeyDown(sender As Object, e As KeyEventArgs) Handles RectangleHeight.PreviewKeyDown, RectangleLength.PreviewKeyDown, RectangleWidth.PreviewKeyDown,
@@ -168,7 +178,7 @@ Public Class ThreeDimShapes
             ConeTab.IsSelected = True
         ElseIf senderButton.Equals(CylinderButton) Then
             MainTab.BorderBrush = CylinderButton.Background
-            'CylinderTab.IsSelected = True
+            CylinderTab.IsSelected = True
         End If
         senderButton.Margin = New Thickness(0, 5, 0, 5)
 
@@ -176,7 +186,11 @@ Public Class ThreeDimShapes
     End Sub
 
     Private Sub Button_Back_Click(sender As Object, e As RoutedEventArgs) Handles ButtonBack.Click
+        If lock
+            Me.close
+        Else
         ParentWindow.switchTo(New SelectorScreen(ParentWindow))
+        End If
     End Sub
     Private Sub ClearButtons()
         For Each Button In Buttons

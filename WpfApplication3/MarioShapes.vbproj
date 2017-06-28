@@ -253,5 +253,32 @@
   <ItemGroup>
     <Resource Include="images\quizBack.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\tick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\kamek.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\question.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\vine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\climbing.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\arrow_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\measure\cylinder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\mute.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\no_mute.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

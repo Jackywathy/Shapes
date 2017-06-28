@@ -8,12 +8,11 @@ Class MainWindow
     Public current As Window = Me
 
     Private Sub Window_KeyDown(sender As Object, e As KeyEventArgs)
-        If (e.Key = Key.D2 Or e.Key = Key.NumPad2) Then
-            MessageBox.Show("play an animation!")
-            switchTo(New SelectorScreen(Me))
-
-        ElseIf (e.Key = Key.F11) Then
+        If (e.Key = Key.F11) Then
             SharedVars.ToggleFullScreen()
+        Else 
+            SharedVars.PlayOnce("jump.wav")
+            switchTo(New SelectorScreen(Me))
         End If
 
     End Sub
@@ -49,6 +48,7 @@ Public Class Helper
     Private currentStyle As WindowStyle = WindowStyle.SingleBorderWindow
     Private currentState As WindowState = WindowState.Normal
     Private player As SoundPlayer
+    Public IsMuted As Boolean = False
 
     Public Property IsFullScreen As Boolean
         Get
@@ -94,26 +94,30 @@ Public Class Helper
         IsFullScreen = Not IsFullScreen
     End Sub
 
-    Public Shared Function ImageUri(name As String) As Uri
+    Public  Function ImageUri(name As String) As Uri
         Return New Uri("pack://application:,,,/MarioShapes;component/images/" + name)
     End Function
-    Public Shared Function RootUri(name As String) As Uri
+    Public  Function RootUri(name As String) As Uri
         Return New Uri("pack://application:,,,/MarioShapes;component/" + name)
     End Function
 
-    Public Shared Function GetImage(name As String) As BitmapImage
+    Public  Function GetImage(name As String) As BitmapImage
         Return New BitmapImage(ImageUri(name))
     End Function
 
-    Public Shared Function GetSound(name As String) As Stream
+    Public  Function GetSound(name As String) As Stream
         Return Application.GetResourceStream(New Uri("pack://application:,,,/MarioShapes;component/music/" + name)).Stream
     End Function
 
-    Public Shared Function GetSoundPac(name As String) As Uri
+    Public  Function GetSoundPac(name As String) As Uri
         Return New Uri("pack://application:,,,/MarioShapes;component/music/" + name)
     End Function
 
     Public Sub PlayMusic(name As String)
+
+        If IsMuted
+            Return
+        End If
         If player IsNot Nothing Then
             player.Stop()
         End If
@@ -121,7 +125,19 @@ Public Class Helper
         player.PlayLooping()
     End Sub
 
+    Public Sub PlayOnce(name As String)
+        If IsMuted
+            Return
+        End If
+        If player IsNot Nothing Then
+            player.Stop()
+        End If
+        player = New SoundPlayer(GetSound(name))
+        player.Play()
+    End Sub
+
     Public Sub StopMusic()
+        
         If player isNot Nothing Then
             player.Stop()
         End If

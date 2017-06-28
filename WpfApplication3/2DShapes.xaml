@@ -586,7 +586,7 @@
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
 
-                        <TextBlock FontFamily="./Fonts/#Super Mario 256" Foreground="Black" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock FontFamily="./Fonts/#Super Mario 256" Foreground="Black" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 Parallelogram
                         </TextBlock>
                         <Image Grid.Row="1" Source="images/shapes/parallel.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>

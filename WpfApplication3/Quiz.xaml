@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Shapes"
         mc:Ignorable="d"
-        Title="Quiz" Height="300" Width="300" BorderBrush="Black" BorderThickness="3">
+        Title="Quiz" Height="500" Width="800" BorderBrush="Black" BorderThickness="3" Icon="images/icon.ico">
     <Window.Background>
         <ImageBrush ImageSource="images/quizBack.jpg"></ImageBrush>
     </Window.Background>
@@ -16,15 +16,28 @@
                 <RowDefinition Height="0.4*"></RowDefinition>
                 <RowDefinition Height="0.2*"></RowDefinition>
             </Grid.RowDefinitions>
-            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Height="16">
-               <Image Source="images/question.png"></Image>
-                <TextBlock x:Name="NumQuestion" HorizontalAlignment="Center" VerticalAlignment="Center">: 0</TextBlock>
+            <Button Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="./Fonts/#Super Mario 256" FontSize="30" Height="64" Width="101" x:Name="BackButton">
+                <Button.Background>
+                    <ImageBrush ImageSource="images/arrow_left.png" Stretch="Uniform"/>
+                </Button.Background> Back</Button>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Height="64">
+                <Image Source="images/question.png"></Image>
+                <TextBlock x:Name="NumQuestion" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontFamily="./Fonts/#Super Mario 256">: 0</TextBlock>
                 <Border BorderBrush="Black" BorderThickness="3,0" Margin="2,0"></Border>
-                <Image Source="images/tick.png"></Image>
-                <TextBlock x:Name="NumCorrect" HorizontalAlignment="Center" VerticalAlignment="Center">: 0</TextBlock>
+                <Image Source="images/tick.png" ></Image>
+                <TextBlock x:Name="NumCorrect" HorizontalAlignment="Center" VerticalAlignment="Center"  FontFamily="./Fonts/#Super Mario 256" FontSize="24">: 0</TextBlock>
             </StackPanel>
             <Image x:Name="ShownImage" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Source="images/measure/placeholder.jpg"></Image>
-            <TextBlock x:Name="ShownText" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="./Fonts/#Super Mario 256" TextWrapping="WrapWithOverflow" FontSize="18">Some filler text</TextBlock>
+            <TextBlock x:Name="ShownText" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="./Fonts/#Super Mario 256" TextWrapping="WrapWithOverflow" FontSize="18" Width="500">Some filler text</TextBlock>
+            <StackPanel Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="#FF7AA072">
+                <TextBlock x:Name="ShownCorrect"  FontFamily="./Fonts/#Super Mario 256" TextWrapping="WrapWithOverflow" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Congrats!</TextBlock>
+                <Button x:Name="ReturnButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" Visibility="Collapsed"></Button>
+                <Button x:Name="NextButton" Visibility="Collapsed">
+                    <TextBlock FontFamily="./Fonts/#Super Mario 256" FontSize="8">
+                        Next Question
+                    </TextBlock>
+                </Button>
+            </StackPanel>
             <Grid Grid.Row="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"></RowDefinition>
@@ -45,3 +58,4 @@
         </Grid>
     </Border>
 </Window>
+

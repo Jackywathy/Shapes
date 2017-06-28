@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="700" KeyDown="Window_KeyDown" WindowStyle="None" Loaded="Window_Loaded" 
+        Icon="images/icon.ico"
         
       >
     <Window.Background>

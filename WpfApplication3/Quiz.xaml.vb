@@ -8,6 +8,30 @@ Public Class Quiz
 
     Public Buttons As List (Of Button)
     Public CorrectBox = -1
+    Public currentTemplate As QuestionItem
+    
+    Private _questionsCorrect as integer = 0
+    Property QuestionsCorrect As Integer 
+        Get
+            return _questionsCorrect
+        End Get
+        Set(value As Integer)
+            _questionsCorrect = value
+            NumCorrect.Text = ": " + value.ToString()
+        End Set
+    End Property
+
+
+    Private _questionsTried as integer = 0
+    Property QuestionsTried As Integer
+        Get
+            return _questionsTried
+        End Get
+        Set(value As Integer)
+            _questionsTried = value
+            NumQuestion.Text = ": " + value.ToString
+        End Set
+    End Property
 
     Public Brushes As New List(Of Brush) From {
            Media.Brushes.Red,
@@ -33,11 +57,28 @@ Public Class Quiz
         Dim tempE As Equation
         ' power of 0, then times of 1 = cancelled out
         ' rhombus : A = width * height 
-        tempE = New Equation(1, 1, 1, 1, 1, 0, 1)
+        tempE = New Equation(1, 1, 1, 1, 1, -1,-1)
         Templates.Add(New QuestionItem(SharedVars.GetImage("measure/parallel.png"), "parallogram", "area", tempE, "width", "height", isRounded:=False))
         ' rectangle : A = width * height
-        tempE = New Equation(1, 1, 1, 1, 1, 0, 1)
+        tempE = New Equation(1, 1, 1, 1, 1, -1,-1)
         Templates.Add(New QuestionItem(SharedVars.GetImage("measure/rectangle.png"), "rectangle", "area", tempE, "width", "height", isRounded:=False))
+        ' triangle : a = 1/2  * width * heigh
+       tempE = new Equation(1.0/2, 1, 1, 1, 1, -1,-1)
+        Templates.Add(New QuestionItem(SharedVars.GetImage("measure/equal_tri.png"), "triangle", "area", tempE, "width", "height", isRounded:=False))
+
+
+        ' sphere
+        tempE = new Equation(Math.PI * 4 / 3, 3,1,0,1,0,1)
+        Templates.Add(New QuestionItem(SharedVars.GetImage("measure/sphere.png"), "sphere", "volume",  tempE, "radius", isRounded:=True))
+        ' square pyramid: length, height
+        tempE = new Equation(1.0/3, 2, 1, 1, 1, -1, -1)
+        Templates.Add(New QuestionItem(SharedVars.GetImage("measure/square_py.png"), "square pyramid", "volume",  tempE, "length", "height", isRounded:=True))
+        ' cylinder pi radius^2, height
+        tempE = new Equation(Math.PI, 2, 1, 1, 1, -1, -1)
+        Templates.Add(New QuestionItem(SharedVars.GetImage("measure/cylinder.png"), "cylinder", "volume",  tempE, "radius", "height", isRounded:=True))
+
+
+
 
         Buttons = New List(Of Button) from {Button1, Button2, Button3, Button4}
 
@@ -48,32 +89,36 @@ Public Class Quiz
     Function LoadAnswer(Answer As Integer) As Integer
         Dim box = GetRange(0,4)
         FOr each button in Buttons
-            button.Content = GetRange(answer/2+4, answer*2+1)
+            button.Content = GetRange(answer/2, answer*2)
         Next
         Buttons(box).Content = Answer
         Return box
     End Function
 
     Sub LoadQuestion(Optional ChangeColor = True)
+        ShownCorrect.Visibility = Visibility.Collapsed
+        ReturnButton.Visibility = Visibility.Collapsed
+        NextButton.Visibility = Visibility.Collapsed
+        EnableButtons()
         If ChangeColor Then
             ShownText.Foreground = GetColor()
         End If
 
-        Dim randomTemplate As QuestionItem = Templates(rnd.Next(0, Templates.Count))
+        currentTemplate = Templates(rnd.Next(0, Templates.Count))
         Dim Arg1 As Integer = GetRnd()
         Dim Arg2 As Integer = GetRnd()
         Dim Arg3 As Integer = GetRnd()
-        Dim Answer As Integer = randomTemplate.Equ.Solve(Arg1, Arg2, Arg3)
-        MessageBox.Show(String.Format(randomTemplate.Template, Arg1, Arg2, Arg3))
+        Dim Answer As Integer = currentTemplate.Equ.Solve(Arg1, Arg2, Arg3, currentTemplate.NumVars)
 
-        ShownImage.Source = randomTemplate.Image
-        ShownText.Text = String.Format(randomTemplate.Template, Arg1, Arg2, Arg3)
+        ShownImage.Source = currentTemplate.Image
+        ShownText.Text = String.Format(currentTemplate.Template, Arg1, Arg2, Arg3)
+       
         correctBox = LoadAnswer(Answer)
     End Sub
 
     Function GetRnd() As Integer
-        ' gets random from 1 - 20
-        Return rnd.Next(1, 20)
+        ' gets random from 5 - 20
+        Return rnd.Next(5, 20)
 
     End Function
 
@@ -86,14 +131,61 @@ Public Class Quiz
     End Function
 
     Private Sub Button1_Click(sender As Object, e As RoutedEventArgs) Handles Button1.Click, Button2.Click, Button3.Click, Button4.Click
+        DisableButtons()
+        ShownCorrect.Visibility = Visibility.Visible
         If CorrectBox = -1
             end
         End If
         Dim thisButton = CType(sender, Button)
         if thisButton.Equals(Buttons(CorrectBox))
-
+            ' its correct!
+            QuestionsCorrect += 1
+            ShownCorrect.Text = "Correct! Next Question?"
+        Else
+            ShownCorrect.Text = String.Format("Incorrect. The answer was {0}. Try new question, or revise?", Buttons(correctBox).Content)
+            If currentTemplate.Type = "area"
+                ReturnButton.Content = "2D Shapes"
+            Else 
+                ReturnButton.Content = "3D Shapes"
+            End If
+            ReturnButton.Visibility = Visibility.Visible
         End If
 
+       
+
+        NextButton.Visibility = Visibility.Visible
+        QuestionsTried += 1
+    End Sub
+
+
+    Sub DisableButtons
+        For Each button in Buttons
+            button.IsEnabled = False
+        Next
+    End Sub
+    Sub EnableButtons
+        For Each button in Buttons
+            button.IsEnabled = True
+        Next
+    End Sub
+
+    Private Sub ReturnButton_Click(sender As Object, e As RoutedEventArgs) Handles ReturnButton.Click
+        If currentTemplate.Type = "area"
+            Dim x as New TwoDimShapes(parentWindow, True)
+            x.ShowDialog()
+        Else
+            Dim x as New ThreeDimShapes(parentWindow, True)
+            x.ShowDialog()
+
+        End If
+    End Sub
+
+    Private Sub BackButton_Click(sender As Object, e As RoutedEventArgs) Handles BackButton.Click
+        ParentWindow.switchTo(New SelectorScreen(ParentWindow))
+    End Sub
+
+    Private Sub NextButton_Click(sender As Object, e As RoutedEventArgs) Handles NextButton.Click
+        LoadQuestion()
     End Sub
 End Class
 
@@ -126,14 +218,17 @@ Public Class QuestionItem
             Template = String.Format("A {0} has a {1} of {{0}}. ", shape, arg1)
             NumVars = 1
         End If
-        Template += String.Format("Find the {0} of this shape!", type)
+        Template += String.Format("Find the {0} of this shape", type)
+        IF IsRounded
+            Template += ", rounded to the nearest whole number"
+        End If
     End Sub
 
 
 End Class
 
 Public Class Equation
-    Public Multiplier As Integer
+    Public Multiplier As Double
     Public Arg1Power As Integer
     Public Arg2Power As Integer
     Public Arg3Power As Integer
@@ -142,7 +237,7 @@ Public Class Equation
     Public Arg2Times As Integer
     Public Arg3Times As Integer
 
-    Sub New(Multiplier As Integer, arg1Power As Integer, arg1Times As Double, arg2Power As Integer, arg2Times As Double, arg3Power As Integer, arg3Times As Double)
+    Sub New(Multiplier As Double, arg1Power As Integer, arg1Times As Double, arg2Power As Integer, arg2Times As Double, arg3Power As Integer, arg3Times As Double)
         Me.Multiplier = Multiplier
         Me.Arg1Power = arg1Power
         Me.Arg2Power = arg2Power
@@ -153,11 +248,27 @@ Public Class Equation
         Me.Arg3Times = arg3Times
     End Sub
 
-    Public Function Solve(Arg1 As Integer, Arg2 As Integer, Arg3 As Integer)
+    Public Function Solve(Arg1 As Integer, Arg2 As Integer, Arg3 As Integer, NumArguments As Integer, OPtional stap As Boolean = false)
+        if stap
+            MessageBox.Show("DEBUG")
+        End If
         Dim res1 As Double = (Arg1 ^ Arg1Power) * Arg1Times
         Dim res2 As Double = (Arg2 ^ Arg2Power) * Arg2Times
         Dim res3 As Double = (Arg3 ^ Arg3Power) * Arg3Times
-        Dim result As Integer = Math.Round(Multiplier * res1 * res2 * res3, MidpointRounding.AwayFromZero)
+        Dim result As Integer
+        If NumArguments = 1
+            result =  Math.Round(Multiplier * res1, MidpointRounding.AwayFromZero)
+            if res1 < 0
+                Throw New Exception("Got negative argument multipler")
+            End If
+        Else if NumArguments = 2
+            result =  Math.Round(Multiplier * res1 * res2, MidpointRounding.AwayFromZero)
+            if res1 < 0 or res2 < 0
+                Throw New Exception("Got negative argument multipler")
+            End If
+        Else
+            result = Math.Round(Multiplier * res1 * res2 * res3, MidpointRounding.AwayFromZero)
+        End If
         Return result
     End Function
 End Class

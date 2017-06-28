@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Shapes"
         mc:Ignorable="d"
-        Title="Selector" Height="300" Width="300" Loaded="Window_Loaded">
+        Title="Choose your activity!" Height="600" Width="600" Loaded="Window_Loaded" Icon="images/icon.ico" KeyDown="Window_KeyDown">
     <Window.Background>
         <ImageBrush ImageSource="images/images.jpg"/>
     </Window.Background>
@@ -20,18 +20,45 @@
             <RowDefinition Height="0.1*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.3*"/>
-            <ColumnDefinition Width="0.2*"/>
-            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="195*"/>
+            <ColumnDefinition Width="71*"/>
+            <ColumnDefinition Width="83*"/>
+            <ColumnDefinition Width="243*"/>
 
         </Grid.ColumnDefinitions>
-        
-        <Button x:Name="quizButton" Content="Quiz" Width="55" Height="45" Grid.Row="1" Grid.Column="2"/>
-        
-        <Button x:Name="threeDimButton" Content="3D Shapes"  Width="79" Height="40" Grid.Row="4"/>
-        
-        <Button x:Name="twoDimButton" Content="2D Shapes" Width="70" Height="30" Grid.Row="5" Grid.Column="3"/>
-        
-        <Image x:Name="Image1_png" Margin="240,0,29,169" Source="Image1.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Width="23" Height="100" OpacityMask="Black" Opacity="0.5"/>
+
+        <Button x:Name="quizButton" FontFamily="./Fonts/#Super Mario 256" Content="Quiz" Grid.Row="1" Grid.Column="3" Margin="36,12,44,10" FontSize="30" Background="{x:Null}"/>
+
+        <Button x:Name="threeDimButton" FontFamily="./Fonts/#Super Mario 256" Content="3D Shapes" Grid.Row="3" Margin="22,65,194,10" FontSize="30" Grid.ColumnSpan="3" Grid.Column="1" Grid.RowSpan="2">
+            <Button.Background>
+                <ImageBrush ImageSource="images/arrow_down.png"/>
+            </Button.Background>
+        </Button>
+
+        <Button  FontFamily="./Fonts/#Super Mario 256" x:Name="twoDimButton" Content="2D Shapes" Grid.Row="5" Grid.Column="3" Margin="46,15,0,0" FontSize="30">
+            <Button.Background>
+                <ImageBrush ImageSource="images/arrow_right.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Image x:Name="VineImage" Grid.Column="3" HorizontalAlignment="Left" Height="225" Margin="141,0,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Source="images/vine.png" Grid.RowSpan="3">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Button x:Name="ExitButton" Content="Exit?" HorizontalAlignment="Left" FontFamily="./Fonts/#Super Mario 256" VerticalAlignment="Top" Width="116" Height="84" Grid.RowSpan="2" Grid.Row="5" Margin="0,15,0,0" FontSize="24">
+            <Button.Background>
+                <ImageBrush ImageSource="images/arrow_left.png"/>
+            </Button.Background>
+        </Button>
+
+        <Button x:Name="MuteButton" HorizontalAlignment="Left" VerticalAlignment="Top" Width="64" Height="48" Background="{x:Null}">
+
+            <Image x:Name="MuteImage" Source="images/no_mute.png"/>
+        </Button>
     </Grid>
 </Window>

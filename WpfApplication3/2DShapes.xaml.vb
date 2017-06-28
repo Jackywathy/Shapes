@@ -6,7 +6,7 @@ Public Class TwoDimShapes
     Public Event CollectionChanged As NotifyCollectionChangedEventHandler Implements INotifyCollectionChanged.CollectionChanged
 
 
-
+    Public Lock As Boolean
 
     Public ParentWindow As MainWindow
     Public SharedVars As Helper
@@ -14,7 +14,7 @@ Public Class TwoDimShapes
     Public Buttons As List(Of Button)
 
 
-    Public Sub New(parent As MainWindow)
+    Public Sub New(parent As MainWindow, Optional Lock As Boolean=False)
         ' This call is required by the designer.
         InitializeComponent()
 
@@ -25,9 +25,9 @@ Public Class TwoDimShapes
         Me.DataContext = Me
         Buttons = New List(Of Button) From {RectangleButton, CircleButton, TrapeziumButton, TriangleButton, ParallelButton, RhombusButton}
 
-
+        Me.Lock = lock
         Rectangle_Button_Click(RectangleButton, Nothing)
-
+       
     End Sub
 
 
@@ -45,7 +45,14 @@ Public Class TwoDimShapes
     'End Sub
 
     Private Sub Button_3D_Click(sender As Object, e As RoutedEventArgs) Handles Button_3D.Click
-        ParentWindow.switchTo(New ThreeDimShapes(ParentWindow))
+        If lock
+            Me.Close()
+            Dim x as New ThreeDimShapes(ParentWindow, True)
+            x.Show()
+
+        Else
+            ParentWindow.switchTo(New ThreeDimShapes(ParentWindow))
+        End if
     End Sub
 
     Private Sub ClearButtons()
@@ -145,8 +152,9 @@ Public Class TwoDimShapes
         RhombusOut.Text = String.Format("Area = {0} x {1} = {2} units²", d1, d2, d1 * d2)
     End Sub
 
-    Private Sub RectangleWidth_PreviewKeyDown(sender As Object, e As KeyEventArgs) Handles RectangleWidth.PreviewKeyDown, RectangleHeight.PreviewKeyDown, TriangleHeight.PreviewKeyDown, TriangleWidth.PreviewKeyDown,
-            TrapTop.PreviewKeyDown, TrapBottom.PreviewKeyDown, ParallelHeight.PreviewKeyDown, ParallelWidth.PreviewKeyDown, CircleRadius.PreviewKeyDown, RhombusD1.PreviewKeyDown, RhombusD2.PreviewKeyDown
+    Private Sub RectangleWidth_PreviewKeyDown(sender As Object, e As KeyEventArgs) Handles RectangleWidth.PreviewKeyDown, RectangleHeight.PreviewKeyDown, TriangleHeight.PreviewKeyDown, _
+        TriangleWidth.PreviewKeyDown, TrapTop.PreviewKeyDown, TrapBottom.PreviewKeyDown, ParallelHeight.PreviewKeyDown, ParallelWidth.PreviewKeyDown, CircleRadius.PreviewKeyDown, _
+         RhombusD1.PreviewKeyDown, RhombusD2.PreviewKeyDown, TrapHeight.PreviewKeyDown
         If Not IsDigit(e.Key) Then
             e.Handled = True
         End If
@@ -191,7 +199,11 @@ Public Class TwoDimShapes
     End Sub
 
     Private Sub ButtonBack_Click(sender As Object, e As RoutedEventArgs) Handles ButtonBack.Click
+        if Lock
+            Me.Close()
+        Else
         ParentWindow.switchTo(New SelectorScreen(ParentWindow))
+        End If
     End Sub
 
     Private Sub TwoDimWindow_Closed(sender As Object, e As EventArgs) Handles TwoDimWindow.Closed
