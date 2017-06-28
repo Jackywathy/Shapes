@@ -1,5 +1,6 @@
 ﻿Imports System.Collections.Specialized
 Imports System.Media
+Imports System.Windows.Controls.Primitives
 
 Public Class TwoDimShapes
     Implements INotifyCollectionChanged
@@ -112,7 +113,7 @@ Public Class TwoDimShapes
         Dim wid As Integer = 0
         Integer.TryParse(ParallelHeight.Text, wid)
         Integer.TryParse(ParallelWidth.Text, hei)
-        ParallelOut.Text = String.Format("{0} x {1} = {2} units²", wid, hei, wid * hei)
+        ParallelOut.Text = String.Format("Area = {0} x {1} = {2} units²", wid, hei, wid * hei)
 
     End Sub
 
@@ -191,6 +192,10 @@ Public Class TwoDimShapes
     End Sub
 
     Private player As SoundPlayer
+
+    Private Sub ButtonBack_Click(sender As Object, e As RoutedEventArgs) Handles ButtonBack.Click
+        ParentWindow.switchTo(New SelectorScreen(ParentWindow))
+    End Sub
 
 
 

@@ -46,13 +46,26 @@
                 </Button>-->
                 <Button x:Name="Button_3D" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="15,5" BorderThickness="3">
                     <Button.Background>
-                        <ImageBrush ImageSource="images/arrow.png"/>
+                        <ImageBrush ImageSource="images/arrow_right.png"/>
                     </Button.Background>
                     <Button.Effect>
                         <DropShadowEffect/>
                     </Button.Effect>
-                    <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,30,0,0" Foreground="#FFFF0051" FontSize="16">3D Shapes!</TextBlock>
+                    <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,30,0,0" Foreground="#FFFF0051" FontSize="16">Go Back</TextBlock>
                 </Button>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left">
+
+            <Button x:Name="ButtonBack" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="15,5" BorderThickness="3">
+                <Button.Background>
+                    <ImageBrush ImageSource="images/arrow_left.png"/>
+                </Button.Background>
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+                <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,30,0,0" Foreground="#FFFF0051" FontSize="16">3D Shapes!</TextBlock>
+            </Button>
             </StackPanel>
         </Grid>
 
@@ -85,10 +98,10 @@
                                     <TextBox FontFamily="./Fonts/#Super Mario 256" x:Name="RectangleWidth" Margin="10,0" MaxLength="2" Width="30" FontSize="20"></TextBox>
                                     <TextBlock FontFamily="./Fonts/#Super Mario 256" Margin="10,0" FontSize="20">Height:</TextBlock>
                                     <TextBox FontFamily="./Fonts/#Super Mario 256" x:Name="RectangleHeight" Margin="10,0" MaxLength="2" Width="30" FontSize="20"></TextBox>
-                           
+
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0">
-                                    
+
                                     <TextBlock FontFamily="./Fonts/#Super Mario 256" x:Name="RectangleOut" FontSize="25">Area = 0 x 0 = 0 units²</TextBlock>
                                 </StackPanel>
 
@@ -351,9 +364,9 @@
                                 <Label Foreground="#FFC519E0">- Opposite Sides are equal in length</Label>
                                 <Label Foreground="#FF36B9B3">- Opposite angles are equal</Label>
                                 <Label Foreground="#FFCD6930">- There is only one type of this shape</Label>
-                                
+
                                 <Border BorderThickness="0,5,0,0" BorderBrush="Black" Margin="0,5,0,0">
-                                    
+
                                 </Border>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -431,7 +444,7 @@
 
                                 </Border>
                                 <Label FontSize="15" Foreground="#FF2D6EE0" VerticalAlignment="Center" HorizontalAlignment="Center">Area = πr²</Label>
-                                <Label FontSize="9"> - π is a special number, that equals about 3.14</Label>
+                                <Label FontSize="9">- π is a special number, that equals about 3.14</Label>
                             </StackPanel>
                         </Grid>
                     </Grid>
@@ -531,7 +544,7 @@
                     <RowDefinition Height="0.1*"/>
                 </Grid.RowDefinitions>
 
-                <Button  x:Name="RectangleButton" Margin="0,5" Grid.Row="0" Padding="5" HorizontalContentAlignment="Center" Background="Yellow" Foreground="White" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center">
+                <Button  x:Name="RectangleButton"  Margin="0,5" Grid.Row="0" Padding="5" HorizontalContentAlignment="Center" Background="Yellow" Foreground="White" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Style="{DynamicResource MyButtonStyle}">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="0.5*"></RowDefinition>

@@ -35,9 +35,7 @@ Public Class ThreeDimShapes
     End Sub
 
 
-    Private Sub Button_3D_pressed(sender As Object, e As RoutedEventArgs) Handles Button_3D.Click
-        Throw New Exception("Already in 3D, cannot do  3D ^ 2")
-    End Sub
+
 
     Private Sub Window_load(sender As Object, e As RoutedEventArgs)
         SharedVars.PlayMusic("underground.wav")

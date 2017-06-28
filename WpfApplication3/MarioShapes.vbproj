@@ -196,7 +196,7 @@
     <Resource Include="images\measure\triangle1.png" />
     <Resource Include="images\notunderground.jpg" />
     <Resource Include="images\shapes\trapezium1.png" />
-    <Resource Include="images\arrow.png" />
+    <Resource Include="images\arrow_right.png" />
     <Resource Include="images\measure\trap_n.png" />
     <Resource Include="images\measure\trap_iso.png" />
     <Resource Include="images\goomba.png" />
@@ -207,6 +207,14 @@
     <Resource Include="images\measure\circle1.png" />
     <Resource Include="images\measure\rhombus.png" />
     <Resource Include="images\measure\rhombus1.png" />
+    <Resource Include="images\arrow_left.png" />
+    <Resource Include="images\shapes\rect_prism.png" />
+    <Resource Include="images\shapes\cylinder.png" />
+    <Resource Include="images\shapes\sphere.png" />
+    <Resource Include="images\shapes\tri_prism.png" />
+    <Resource Include="images\shapes\cone.png" />
+    <Resource Include="images\shapes\square_py.png" />
+    <Resource Include="images\shapes\tri_py.png" />
     <Content Include="images\test.mp4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
